@@ -4,6 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+certifi = "==2021.10.8"
+distlib = "==0.3.4"
+filelock = "==3.4.2"
+pipenv = "==2022.1.8"
+platformdirs = "==2.5.0"
+six = "==1.16.0"
+virtualenv = "==20.13.1"
+virtualenv-clone = "==0.5.7"
+flask = "*"
+psycopg2 = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 
