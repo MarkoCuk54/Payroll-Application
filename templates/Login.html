@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CodePen - Glassmorphism login Form Tutorial in html css</title>
+    <link rel="stylesheet" href="../static/login.css" />
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <title>Prijava</title>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <h1 style="text-align: center; color: white; margin-top: 50px">
+          Pijava
+        </h1>
+        <div class="background">
+          <div class="shape"></div>
+          <div class="shape"></div>
+        </div>
+        <form action="/login" method="post">
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            value="{{
+          request.form.username }}"
+          />
+
+          <br />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value="{{
+          request.form.password }}"
+          />
+          <br />
+          <br />
+          <br />
+          <input class="btn btn-default" type="submit" value="Login" />
+        </form>
+        {% if error %}
+        <p style="color: black" class="error">
+          <strong>Error:</strong> {{ error }} {% endif %}
+        </p>
+      </body>
+    </html>
+  </body>
+</html>

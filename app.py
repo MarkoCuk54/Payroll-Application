@@ -28,3 +28,22 @@ class Feedback(db.Model):
         self.LastName = LastName
         self.Satnica = Satnica
        
+
+
+@app.route('/')
+def index():
+    return render_template('Login.html')
+
+
+@app.route('/login', methods=['Get','POST'])
+def login():
+    if request.method == 'POST':
+        if request.form['username'] == 'admin' and request.form['password'] == 'emerus159':
+            return render_template("dodajRadnika.html")
+        else:
+            error = 'niste ovlašteni koristiti ovu značajku'
+            return render_template('Login.html', error=error)
+
+
+if __name__ == '__main__':
+   app.run(host='0.0.0.0', port=5000)
