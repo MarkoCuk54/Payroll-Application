@@ -6,30 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/dodajRadnika.css" />
     <title>Dodaj Radnika</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      </style>
   </head>
   <body>
+    <html>
+      <div class="header"></div>
+      <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+      <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+      </label>
+      <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+          <li>EMERUS <span>Payroll System</span></li>
+          <li><a href="https://vanila.io" target="_blank">Test</a></li>
+          <li><a href="https://instagram.com/plavookac" target="_blank">Test1</a></li>
+          <li><a href="https://twitter.com/plavookac" target="_blank">Test2</a></li>
+          <li><a href="https://www.youtube.com/channel/UCDfZM0IK6RBgud8HYGFXAJg" target="_blank">Test3</a></li>
+          <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank">Test4</a></li>
+        </ul>
+      </div>
+     
     <h1>Dodaj Radnika</h1>
     <form action="/submit_noviRadnik" method="post">
       {% if message %}
       <p class="message">{{ message | safe }}</p>
       {% endif %}
-      <h3>- Id</h3>
-      <input type="number" name="id" placeholder="Upišite Id Radnika." />
-      <h3>- Ime</h3>
-      <input type="text" name="firstName" placeholder="Upišite Ime." />
-      <h3>- Prezime</h3>
-      <input type="text" name="lastName" placeholder="Upišite Prezime" />
-      <h3>- Satnica</h3>
-      <input
-        type="number"
-        step="0.01"
-        name="Satnica"
-        placeholder="Upišite trenutnu Satnicu"
-      />
-      <br />
-      <br />
-      <br />
-      <input type="submit" value="Pošalji" class="btn" />
+      <div id="container">
+        <h1>&bull; Unos djelatnika &bull;</h1>
+        <div class="underline">
+        </div>
+        <div class="icon_wrapper">
+         
+        </div>
+        
+        <div class="name">
+          <label for="name"></label>
+          <input type="text" placeholder="Ime" name="name" id="name_input" required>
+        </div>
+        <div class="email">
+          <label for="email"></label>
+          <input type="email" placeholder="Prezime" name="email" id="email_input" required>
+        </div>
+        <div class="telephone">
+          <label for="name"></label>
+          <input type="text" placeholder="ID" name="telephone" id="telephone_input" required>
+        </div>
+        <div class="subject">
+          <label for="subject"></label>
+          <select placeholder="Odjel" name="subject" id="subject_input" required>
+            <option disabled hidden selected>Odaberite odjel</option>
+            <option>Uprava</option>
+            <option>IT odjel</option>
+            <option>Proizvodnja</option>
+            <option>Pakiranje</option>
+            <option>Strojna obrada</option>
+            <option>Termički most</option>
+            <option>Bojara</option>
+            <option>Skladište</option>
+            <option>Maloprodaja</option>
+            <option>Korekcija</option>
+            <option>Kontrola</option>
+          </select>
+        </div>
+          <div class="message">
+            <label for="message"></label>
+            <textarea name="message" placeholder="Unesite opis..." id="message_input" cols="30" rows="5" required></textarea>
+          </div>
+          <div class="submit">
+            <input type="submit" value="Pošalji" id="form_button" />
+          </div>
+        
+      </div>
     </form>
   </body>
 </html>
