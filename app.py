@@ -57,11 +57,16 @@ def submitOdrzavanje():
         # when "it" make a query to see just it stuff and vica versa
         if id == '' or firstName == '' or lastName == "" or Satnica == "":
             return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
-        data = Feedback(id, firstName, lastName, Satnica)
-        db.session.add(data)
-        db.session.commit()
-        # send_mail(customer, dealer, rating, comments)
-        return render_template('success.html')
+        try:
+            data = Feedback(id, firstName, lastName, Satnica)
+            db.session.add(data)
+            db.session.commit()
+            # send_mail(customer, dealer, rating, comments)
+            return render_template('success.html')
+        except:
+            return render_template('dodajRadnika.html', message='Ovaj Radnik vec postoji u bazi')
+
+        
 
 
 
