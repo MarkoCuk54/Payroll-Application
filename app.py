@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 
 
 class Feedback(db.Model):
-    __tablename__ = 'Radnici'
+    __tablename__ = 'radnici'
     id = db.Column(db.Integer, primary_key=True)
     FirstName = db.Column(db.String(30))
     LastName = db.Column(db.String(30))
@@ -46,29 +46,29 @@ def login():
 
 
 @app.route('/submit_noviRadnik', methods=['POST'])
-def submitOdrzavanje():
+def submitNoviRadnik():
     if request.method == 'POST':
         id = request.form["id"]
         firstName = request.form['firstName']
         lastName = request.form['lastName']
         Satnica = request.form['Satnica']
-        # print(customer, dealer, rating, comments)
-        # adding here an if statement to see is it it or odrzavanje
-        # when "it" make a query to see just it stuff and vica versa
         if id == '' or firstName == '' or lastName == "" or Satnica == "":
             return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
         try:
             data = Feedback(id, firstName, lastName, Satnica)
             db.session.add(data)
             db.session.commit()
-            # send_mail(customer, dealer, rating, comments)
             return render_template('success.html')
         except:
             return render_template('dodajRadnika.html', message='Ovaj Radnik vec postoji u bazi')
 
         
-
-
+@app.route('/sviRadnici', methods=['GET', 'POST'])
+def sviRadnici():
+        cursor.execute("SELECT * FROM radnici ORDER BY id ")
+        result = cursor.fetchall()
+        return render_template("sviRadnici.html", data=result)
+        
 
 
 if __name__ == '__main__':
