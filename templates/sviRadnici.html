@@ -4,19 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Svi Radnici</title>
-  </head>
-  <body>
-      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Potrazi po ID">
+    <link rel="stylesheet" href="../static/sviRadnici.css" />
 
-      <div class="table-wrapper">
-        <table class="fl-table" id="myTable">
+    <title>Svi djelatnici</title>
+  </head>
+
+<hr>
+  <div class="table-wrapper">
+    
+        <table class="fl-table">
           <thead style="text-align: center">
             <tr>
               <th>ID</th>
               <th>Ime</th>
               <th>Prezime</th>
               <th>Satnica</th>
+              <th>Odjel</th>
+              <th>Opis</th>
+              
             </tr>
           </thead>
           <div>
@@ -27,37 +32,38 @@
               <td>{{row[0]}}</td>
               <td>{{ row[1] }}</td>
               <td>{{ row[2] }}</td>
-              <td>{{ row[3] }} KM</td>
-             
+              <td>{{ row[3] }}</td>
+              <td>{{ row[4] }}</td>
+              <td>{{ row[5] }}</td>
+              
+
+              
             </tr>
           </tbody>
       {% endfor %}
+
           <tbody></tbody>
         </table>
+    
   </div>
-<script>
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-
+  <script language="javascript">
+setTimeout(function(){
+   window.location.reload(1);
+}, 60000);
 </script>
-</body>
+<script>const spans = document.querySelectorAll('.word span');
+
+spans.forEach((span, idx) => {
+  span.addEventListener('click', (e) => {
+    e.target.classList.add('active');
+  });
+  span.addEventListener('animationend', (e) => {
+    e.target.classList.remove('active');
+  });
+  
+  // Initial animation
+  setTimeout(() => {
+    span.classList.add('active');
+  }, 750 * (idx+1))
+});</script>
 </html>
