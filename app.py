@@ -20,13 +20,18 @@ class Feedback(db.Model):
     FirstName = db.Column(db.String(30))
     LastName = db.Column(db.String(30))
     Satnica = db.Column(db.Float)
+    Odjel = db.Column(db.String(30))
+    Opis = db.Column(db.Text())
+
    
 
-    def __init__(self, id, FirstName, LastName, Satnica):
+    def __init__(self, id, FirstName, LastName, Satnica, Odjel, Opis):
         self.id = id
         self.FirstName = FirstName
         self.LastName = LastName
         self.Satnica = Satnica
+        self.Odjel = Odjel
+        self.Opis = Opis
        
 
 
@@ -52,10 +57,12 @@ def submitNoviRadnik():
         firstName = request.form['firstName']
         lastName = request.form['lastName']
         Satnica = request.form['Satnica']
+        Odjel = request.form["Odjel"]
+        Opis = request.form["Opis"]
         if id == '' or firstName == '' or lastName == "" or Satnica == "":
             return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
         try:
-            data = Feedback(id, firstName, lastName, Satnica)
+            data = Feedback(id, firstName, lastName, Satnica,Odjel, Opis)
             db.session.add(data)
             db.session.commit()
             return render_template('success.html')
