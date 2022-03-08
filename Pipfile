@@ -12,9 +12,9 @@ platformdirs = "==2.5.0"
 six = "==1.16.0"
 virtualenv = "==20.13.1"
 virtualenv-clone = "==0.5.7"
-flask = "*"
 psycopg2 = "*"
-flask-sqlalchemy = "*"
+Flask = "*"
+Flask-SQLAlchemy = "*"
 
 [dev-packages]
 
