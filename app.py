@@ -52,9 +52,6 @@ def submitNoviRadnik():
         firstName = request.form['firstName']
         lastName = request.form['lastName']
         Satnica = request.form['Satnica']
-        # print(customer, dealer, rating, comments)
-        # adding here an if statement to see is it it or odrzavanje
-        # when "it" make a query to see just it stuff and vica versa
         if id == '' or firstName == '' or lastName == "" or Satnica == "":
             return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
         try:
