@@ -46,7 +46,7 @@ def login():
 
 
 @app.route('/submit_noviRadnik', methods=['POST'])
-def submitOdrzavanje():
+def submitNoviRadnik():
     if request.method == 'POST':
         id = request.form["id"]
         firstName = request.form['firstName']
