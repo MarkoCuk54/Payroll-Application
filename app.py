@@ -61,7 +61,6 @@ def submitOdrzavanje():
             data = Feedback(id, firstName, lastName, Satnica)
             db.session.add(data)
             db.session.commit()
-            # send_mail(customer, dealer, rating, comments)
             return render_template('success.html')
         except:
             return render_template('dodajRadnika.html', message='Ovaj Radnik vec postoji u bazi')
