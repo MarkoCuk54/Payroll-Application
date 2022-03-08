@@ -9,7 +9,12 @@
   </head>
   <body>
     <h1>Dodaj Radnika</h1>
-    <form action="" method="post">
+    <form action="/submit_noviRadnik" method="post">
+      {% if message %}
+      <p class="message">{{ message | safe }}</p>
+      {% endif %}
+      <h3>- Id</h3>
+      <input type="number" name="id" placeholder="Upišite Id Radnika." />
       <h3>- Ime</h3>
       <input type="text" name="firstName" placeholder="Upišite Ime." />
       <h3>- Prezime</h3>
@@ -17,6 +22,7 @@
       <h3>- Satnica</h3>
       <input
         type="number"
+        step="0.01"
         name="Satnica"
         placeholder="Upišite trenutnu Satnicu"
       />

@@ -45,5 +45,26 @@ def login():
             return render_template('Login.html', error=error)
 
 
+@app.route('/submit_noviRadnik', methods=['POST'])
+def submitOdrzavanje():
+    if request.method == 'POST':
+        id = request.form["id"]
+        firstName = request.form['firstName']
+        lastName = request.form['lastName']
+        Satnica = request.form['Satnica']
+        # print(customer, dealer, rating, comments)
+        # adding here an if statement to see is it it or odrzavanje
+        # when "it" make a query to see just it stuff and vica versa
+        if id == '' or firstName == '' or lastName == "" or Satnica == "":
+            return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
+        data = Feedback(id, firstName, lastName, Satnica)
+        db.session.add(data)
+        db.session.commit()
+        # send_mail(customer, dealer, rating, comments)
+        return render_template('success.html')
+
+
+
+
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=5000)
