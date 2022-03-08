@@ -51,19 +51,19 @@
         </div>
         <div class="email">
           <label for="email"></label>
-          <input type="email" placeholder="Prezime" name="lastName" id="email_input" required>
+          <input type="text" placeholder="Prezime" name="lastName" id="email_input" required>
         </div>
         <div class="telephone">
           <label for="name"></label>
-          <input type="text" placeholder="ID" name="id" id="telephone_input" required>
+          <input type="number" placeholder="ID" name="id" id="telephone_input" required>
         </div>
         <div class="hour">
           <label for="name"></label>
-          <input type="text" placeholder="Satnica" name="hour" id="telephone_input" required>
+          <input type="number" placeholder="Satnica" step="0.01" name="Satnica" id="telephone_input" required>
         </div>
         <div class="subject">
           <label for="subject"></label>
-          <select placeholder="Odjel" name="subject" id="subject_input" required>
+          <select placeholder="Odjel" name="Odjel" id="subject_input" required>
             <option disabled hidden selected>Odaberite odjel</option>
             <option value="Uprava">Uprava</option>
             <option value="IT Odjel">IT odjel</option>
@@ -80,7 +80,7 @@
         </div>
           <div class="message">
             <label for="message"></label>
-            <textarea name="message" placeholder="Unesite opis..." id="message_input" cols="30" rows="5" required></textarea>
+            <textarea name="Opis" placeholder="Unesite opis..." id="message_input" cols="30" rows="5" ></textarea>
           </div>
           <div class="submit">
             <input type="submit" value="Pošalji" id="form_button" />
