@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 
 
 class Feedback(db.Model):
-    __tablename__ = 'Radnici'
+    __tablename__ = 'radnici'
     id = db.Column(db.Integer, primary_key=True)
     FirstName = db.Column(db.String(30))
     LastName = db.Column(db.String(30))
@@ -66,8 +66,12 @@ def submitOdrzavanje():
             return render_template('dodajRadnika.html', message='Ovaj Radnik vec postoji u bazi')
 
         
-
-
+@app.route('/sviRadnici', methods=['GET', 'POST'])
+def sviRadnici():
+        cursor.execute("SELECT * FROM radnici ORDER BY id ")
+        result = cursor.fetchall()
+        return render_template("sviRadnici.html", data=result)
+        
 
 
 if __name__ == '__main__':
