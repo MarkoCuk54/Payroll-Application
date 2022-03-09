@@ -50,7 +50,7 @@ def login():
             return render_template('Login.html', error=error)
 
 
-@app.route('/dodajRadnik')
+@app.route('/dodajRadnika')
 def dodajRadnik():
     return render_template("dodajRadnika.html")
 
