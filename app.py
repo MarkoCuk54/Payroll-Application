@@ -50,6 +50,11 @@ def login():
             return render_template('Login.html', error=error)
 
 
+@app.route('/dodajRadnika')
+def dodajRadnik():
+    return render_template("dodajRadnika.html")
+
+
 @app.route('/submit_noviRadnik', methods=['POST'])
 def submitNoviRadnik():
     if request.method == 'POST':
