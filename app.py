@@ -39,6 +39,9 @@ class Feedback(db.Model):
 def index():
     return render_template('Login.html')
 
+@app.route("/home")
+def home():
+    return render_template("home.html")
 
 @app.route('/login', methods=['Get','POST'])
 def login():
