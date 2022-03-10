@@ -77,7 +77,6 @@ def home():
 
 @app.route('/login', methods=['Get'])
 def login():
-    if request.method == 'POST':
         if request.form['username'] == 'admin' and request.form['password'] == 'emerus159':
             return render_template("home.html")
         else:
