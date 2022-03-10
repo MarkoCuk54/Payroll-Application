@@ -39,6 +39,10 @@ h1 {
   transform-origin: bottom left;
 }
 
+#searchbar1 {
+  border: solid 2px #474544;
+}
+
 @keyframes balance {
   0%,
   100% {
