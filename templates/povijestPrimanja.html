@@ -45,12 +45,21 @@
         </label>
         <div id="sidebarMenu">
           <ul class="sidebarMenuInner">
-            <li>EMERUS <span>Payroll System</span></li>
-            <li><a href="dodajRadnika.html" target="_blank">Početna stranica</a></li>
-            <li><a href="sviRadnici.html" target="_blank">Svi djelatnici</a></li>
-            <li><a href="dodajRadnika.html" target="_blank">Dodaj djelatnika</a></li>
-            <li><a href="povijestPrimanja.html" target="_blank">Povijest primanja</a></li>
-            <li><a href="Login.html" target="_blank">Odjava</a></li>
+           <ul class="sidebarMenuInner">
+          <li>EMERUS <span>Payroll System</span></li>
+          <li><form style="text-align: left" action="/home">
+            <button id="home">Početna stranica</button>
+          </form></li>
+          <li><form style="text-align: left" action="/sviRadnici">
+            <button id="sviRadnici">Svi Radnici</button>
+          </form></li><li>
+           <form style="text-align: left" action="/dodajRadnika">
+            <button id="dodajRadnika">Dodaj Radnika</button></form></li>
+            <li><form  style="text-align: left" action="/povijestPrimanja">  <button id="povijestPrimanja">Povijest Primanja</button></form></li>
+          <li><form style="text-align: left" action="/">
+            <button id="/">Odjava</button></form></form></li>
+          
+        </ul>
             
           </ul>
         </div>
@@ -89,18 +98,18 @@
               <td>{{row [0] }}</td>
               <td>{{ row[1] }}</td>
               <td>{{ row[2] }}</td>
-              <td>{{ row[3] }}</td>
-              <td>{{ row[4] }}</td>
-              <td>{{ row[5] }}</td>
-              <td>{{row [6] }}</td>
-              <td>{{ row[7] }}</td>
-              <td>{{ row[8] }}</td>
-              <td>{{ row[9] }}</td>
-              <td>{{ row[10] }}</td>
-              <td>{{ row[11] }}</td>
-              <td>{{ row[12] }}</td>
-              <td>{{ row[13] }}</td>
-              <td>{{ row[14] }}</td>
+              <td>{{ row[3] }}KM</td>
+              <td>{{ row[4] }}KM</td>
+              <td>{{ row[5] }}KM</td>
+              <td>{{row [6] }}KM</td>
+              <td>{{ row[7] }}KM</td>
+              <td>{{ row[8] }}KM</td>
+              <td>{{ row[9] }}KM</td>
+              <td>{{ row[10] }}KM</td>
+              <td>{{ row[11] }}KM</td>
+              <td>{{ row[12] }}KM</td>
+              <td>{{ row[13] }}KM</td>
+              <td>{{ row[14] }}KM</td>
                
               
 

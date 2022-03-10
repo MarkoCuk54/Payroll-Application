@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
-from sqlalchemy import ForeignKey
 
 
 
@@ -34,7 +33,7 @@ class Feedback(db.Model):
 
 
 class placaTablica(db.Model):
-    __tablename__ = 'placaMjesecna'
+    __tablename__ = 'placamjesecna'
     id = db.Column(db.Integer, primary_key=True)
     FirstName = db.Column(db.String(30))
     LastName = db.Column(db.String(30))
@@ -117,6 +116,14 @@ def sviRadnici():
         result = cursor.fetchall()
         return render_template("sviRadnici.html", data=result)
         
+
+@app.route("/povijestPrimanja", methods=["GET", "POST"])
+def povijestPrimanja():
+        cursor.execute("SELECT * FROM placaMjesecna ORDER BY id ")
+        result = cursor.fetchall()
+        return render_template("povijestPrimanja.html", data=result)
+
+
 
 
 if __name__ == '__main__':
