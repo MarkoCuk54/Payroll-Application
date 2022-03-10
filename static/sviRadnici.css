@@ -41,6 +41,10 @@ h1 {
 
 #searchbar1 {
   border: solid 2px #474544;
+  width: 20%;
+  margin-top: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 @keyframes balance {
