@@ -75,7 +75,7 @@ def index():
 def home():
     return render_template("home.html")
 
-@app.route('/login', methods=['Get','POST'])
+@app.route('/login', methods=['Get'])
 def login():
     if request.method == 'POST':
         if request.form['username'] == 'admin' and request.form['password'] == 'emerus159':
@@ -110,14 +110,14 @@ def submitNoviRadnik():
             return render_template('dodajRadnika.html', message='Ovaj Radnik vec postoji u bazi')
 
         
-@app.route('/sviRadnici', methods=['GET', 'POST'])
+@app.route('/sviRadnici', methods=['GET'])
 def sviRadnici():
         cursor.execute("SELECT * FROM radnici ORDER BY id ")
         result = cursor.fetchall()
         return render_template("sviRadnici.html", data=result)
         
 
-@app.route("/povijestPrimanja", methods=["GET", "POST"])
+@app.route("/povijestPrimanja", methods=["GET"])
 def povijestPrimanja():
         cursor.execute("SELECT * FROM placaMjesecna ORDER BY id ")
         result = cursor.fetchall()
