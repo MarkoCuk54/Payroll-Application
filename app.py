@@ -23,8 +23,6 @@ class Feedback(db.Model):
     Odjel = db.Column(db.String(30))
     Opis = db.Column(db.Text())
 
-   
-
     def __init__(self, id, FirstName, LastName, Satnica, Odjel, Opis):
         self.id = id
         self.FirstName = FirstName
@@ -32,8 +30,42 @@ class Feedback(db.Model):
         self.Satnica = Satnica
         self.Odjel = Odjel
         self.Opis = Opis
-       
 
+
+class placaTablica(db.Model):
+    __tablename__ = 'placamjesecna'
+    id = db.Column(db.Integer, primary_key=True)
+    FirstName = db.Column(db.String(30))
+    LastName = db.Column(db.String(30))
+    Siječanj = db.Column(db.Float)
+    Veljača  = db.Column(db.Float)
+    Ožujak  = db.Column(db.Float)
+    Travanj  = db.Column(db.Float)
+    Svibanj  = db.Column(db.Float)
+    Lipanj  = db.Column(db.Float)
+    Srpanj  = db.Column(db.Float)
+    Kolovoz  = db.Column(db.Float)
+    Rujan  = db.Column(db.Float)
+    Listopad  = db.Column(db.Float)
+    Studeni  = db.Column(db.Float)
+    Prosinac  = db.Column(db.Float)
+
+    def __init__(self, id, FirstName, LastName, Siječanj, Veljača, Ožujak, Travanj, Svibanj, Lipanj, Srpanj, Kolovoz, Rujan, Listopad, Studeni, Prosinac):
+        self.id = id
+        self.FirstName = FirstName
+        self.LastName = LastName
+        self.Siječanj = Siječanj
+        self.Veljača = Veljača
+        self.Ožujak = Ožujak
+        self.Travanj = Travanj
+        self.Svibanj = Svibanj
+        self.Lipanj = Lipanj
+        self.Srpanj = Srpanj
+        self.Kolovoz = Kolovoz
+        self.Rujan = Rujan
+        self.Listopad = Listopad
+        self.Studeni = Studeni
+        self.Prosinac = Prosinac
 
 @app.route('/')
 def index():
@@ -84,6 +116,14 @@ def sviRadnici():
         result = cursor.fetchall()
         return render_template("sviRadnici.html", data=result)
         
+
+@app.route("/povijestPrimanja", methods=["GET", "POST"])
+def povijestPrimanja():
+        cursor.execute("SELECT * FROM placaMjesecna ORDER BY id ")
+        result = cursor.fetchall()
+        return render_template("povijestPrimanja.html", data=result)
+
+
 
 
 if __name__ == '__main__':
