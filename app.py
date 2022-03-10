@@ -5,11 +5,11 @@ import psycopg2
 
 
 app = Flask(__name__)
-con = psycopg2.connect(database="payroll", user="postgres", password="emerus2705", host="127.0.0.1", port="5432")
+con = psycopg2.connect(database="payroll", user="postgres", password="EMERUS2705", host="127.0.0.1", port="5432")
 cursor = con.cursor()
 
 app.debug = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:emerus2705@localhost/payroll'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:EMERUS2705@localhost/payroll'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 

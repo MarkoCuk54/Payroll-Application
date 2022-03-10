@@ -33,7 +33,45 @@ body {
 form { 
     margin: 0 auto; 
     width:600px;
+    
     }
+  
+#home{
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 20px;
+}   
+
+#sviRadnici{
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 20px;
+}
+
+#dodajRadnika{
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 20px;
+}
+
+#povijestPrimanja{
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 20px;
+}
+
+#odjava{
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 20px;
+
+}
+
 .mainInner{
     display: table;
     height: 100%;
@@ -156,11 +194,12 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 button {
   overflow: visible;
-
+  background-color: #006c92;
 }
 
 button, select {
   text-transform: none;
+  
 }
 
 button, input, select, textarea {
