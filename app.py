@@ -79,7 +79,7 @@ def home():
 def login():
     if request.method == 'POST':
         if request.form['username'] == 'admin' and request.form['password'] == 'emerus159':
-            return render_template("dodajRadnika.html")
+            return render_template("home.html")
         else:
             error = 'niste ovlašteni koristiti ovu značajku'
             return render_template('Login.html', error=error)
