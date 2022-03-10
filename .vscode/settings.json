@@ -1,0 +1,14 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "payroll",
+      "database": "payroll",
+      "username": "postgres",
+      "password": "emerus2705"
+    }
+  ]
+}
