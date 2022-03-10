@@ -11,9 +11,7 @@
   
   </head>
   
- <body>
-   
-
+ 
 
         <div class="header"></div>
         <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
@@ -64,7 +62,7 @@
       <div>
           <tbody>
             <tr>
-              <td class="idSearch">{{row[0]}}</td>
+              <td>{{row[0]}}</td>
               <td>{{ row[1] }}</td>
               <td>{{ row[2] }}</td>
               <td>{{ row[3] }}</td>
@@ -83,22 +81,6 @@
     
   </div>
   
-<script>function search_animal() {
-  let input = document.getElementById("searchbar1").value;
-  input = input.toLowerCase();
-  let x = document.getElementsByClassName("idSearch");
-
-  for (i = 0; i < x.length; i++) {
-    if (!x[i].innerHTML.toLowerCase().includes(input)) {
-      x[i].style.display = "none";
-    } else {
-      x[i].style.display = "list-item";
-    }
-  }
-}
-
-</script>
-  </body>
 
 
 </html>
