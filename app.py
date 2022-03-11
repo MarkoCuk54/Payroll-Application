@@ -125,13 +125,17 @@ def povijestPrimanja():
 
 
 @app.route("/kalkulator", methods=["GET", "POST"])
+def renderKalkulator():
+        return render_template("kalkulator.html")
+
+@app.route("/kalkulatorSubmit", methods=["GET", "POST"])
 def kalkulator():
-        id = 212
+        id = request.form["id"]
         cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
-        print(result[0][3])
-        return render_template("kalkulator.html",  satnica = result)
-
+        satnica = (result[0][3])
+        print(satnica)
+        return render_template("kalkulator.html" )
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=5000)
