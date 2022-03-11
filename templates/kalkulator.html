@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/style.css">
+        <link rel="stylesheet" href="../static/dodajRadnika.css" />
     <link rel="stylesheet" href="../static/kalkulator.css" />
     <title>Kalkulator</title>
   </head>
@@ -32,10 +33,65 @@
 
       <li><form style="text-align: left" action="/">
         <button id="odjava">Odjava</button></form></form></li>
-      
-
-        
     </ul>
   </div>
+  <h1>Kalkulator Place</h1>
+    <form action="/kalkulatorSubmit" method="post">
+      {% if message %}
+      <p class="message">{{ message | safe }}</p>
+      {% endif %}
+      <div id="container">
+        <h1>&bull; Kalkulator Place &bull;</h1>
+        <div class="underline">
+        </div>
+        <div class="icon_wrapper">
+         
+        </div>
+        
+        
+        <div class="name">
+          <label for="name"></label>
+          <input type="text" placeholder="ID" name="id" id="name_input" required>
+        </div>
+
+        <div class="email">
+          <label for="sati"></label>
+          <input type="text" placeholder="Ukupan broj sati" name="sati" id="email_input" required>
+        </div>
+        
+        <div class="email">
+          <label for="nocni"></label>
+          <input type="text" placeholder="Nocni Sati" name="nocni" id="email_input" required>
+        </div>
+       
+        <div class="subject">
+          <label for="subject"></label>
+          <select placeholder="Mjesec" name="mjesec" id="subject_input" required>
+            <option disabled hidden selected>Odaberite Mjesec</option>
+            <option value="Siječanj">Siječanj </option>
+            <option value="Veljača">Veljača </option>
+            <option value="Ožujak">Ožujak </option>
+            <option value="Travanj" >Travanj</option>
+            <option value="Svibanj">Svibanj </option>
+            <option value="Lipanj">Lipanj</option>
+            <option value="Srpanj">Srpanj</option>
+            <option value="Kolovoz">Kolovoz</option>
+            <option value="Rujan">Rujan</option>
+            <option value="Listopad">Listopad</option>
+            <option value="Studeni">Studeni</option>
+            <option value="Prosinac">Prosinac</option>
+
+          </select>
+        </div>
+          <div class="submit">
+            <input type="submit" value="Pošalji" id="form_button" />
+          </div>
+        
+      </div>
+    </form>
+    {% if data %}
+      <h1 class="message"> {{firstName}} {{lastName}} :   {{data}}KM</h1>
+    {% endif %}
+  
   </body>
 </html>

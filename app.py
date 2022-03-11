@@ -131,11 +131,16 @@ def renderKalkulator():
 @app.route("/kalkulatorSubmit", methods=["GET", "POST"])
 def kalkulator():
         id = request.form["id"]
+        sati = request.form["sati"]
+        nocni = request.form["nocni"]
         cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
         satnica = (result[0][3])
-        print(satnica)
-        return render_template("kalkulator.html" )
+        placa = (float(satnica) * int(sati)) + int(nocni) * (float(satnica)* 1.3)
+        rezultat = str(round(placa, 2))
+        rezName = result[0][1]
+        rezLastName = result[0][2]
+        return render_template("kalkulator.html", data = rezultat, firstName = rezName, lastName = rezLastName )
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=5000)
