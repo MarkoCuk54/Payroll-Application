@@ -17,11 +17,13 @@ Install my-project with pip
   python ./app.py
 ```
 
+
+  ![Logo](https://raw.githubusercontent.com/MarkoCuk54/Payroll-Application/main/static/Payroll.PNG)
+
 ## Authors
 
 - [@Mario Tomic](https://github.com/Mario542-cmd)
 - [@Marko Cuk](https://github.com/MarkoCuk54)
-  ![Logo](https://raw.githubusercontent.com/MarkoCuk54/Payroll-Application/main/static/Payroll.PNG)
 
 ## Used By
 
