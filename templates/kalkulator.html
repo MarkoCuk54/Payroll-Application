@@ -37,9 +37,7 @@
   </div>
   <h1>Kalkulator Place</h1>
     <form action="/kalkulatorSubmit" method="post">
-      {% if message %}
-      <p class="message">{{ message | safe }}</p>
-      {% endif %}
+      
       <div id="container">
         <h1>&bull; Kalkulator Place &bull;</h1>
         <div class="underline">
@@ -61,12 +59,12 @@
         
         <div class="email">
           <label for="nocni"></label>
-          <input type="text" placeholder="Nocni Sati" name="nocni" id="email_input" required>
+          <input type="text" placeholder="Nocni Sati" name="nocni" id="email_input" >
         </div>
        
         <div class="subject">
           <label for="subject"></label>
-          <select placeholder="Mjesec" name="mjesec" id="subject_input" required>
+          <select placeholder="Mjesec" name="mjesec" id="subject_input" >
             <option disabled hidden selected>Odaberite Mjesec</option>
             <option value="Siječanj">Siječanj </option>
             <option value="Veljača">Veljača </option>
@@ -90,8 +88,10 @@
       </div>
     </form>
     {% if data %}
-      <h1 class="message"> {{firstName}} {{lastName}} :   {{data}}KM</h1>
+      <h1 class="message"> {{firstName}} {{lastName}} :   {{data}} KM</h1>
     {% endif %}
-  
+   {% if message %}
+      <h1 class="message">{{ message | safe }}</h1>
+    {% endif %}
   </body>
 </html>

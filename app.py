@@ -130,6 +130,7 @@ def renderKalkulator():
 
 @app.route("/kalkulatorSubmit", methods=["GET", "POST"])
 def kalkulator():
+    try:
         id = request.form["id"]
         sati = request.form["sati"]
         nocni = request.form["nocni"]
@@ -141,6 +142,8 @@ def kalkulator():
         rezName = result[0][1]
         rezLastName = result[0][2]
         return render_template("kalkulator.html", data = rezultat, firstName = rezName, lastName = rezLastName )
+    except:
+         return render_template('kalkulator.html', message='Ovaj Radnik ne postoji u bazi')
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=5000)
