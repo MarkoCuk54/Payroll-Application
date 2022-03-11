@@ -87,11 +87,13 @@
         
       </div>
     </form>
+    <div>
     {% if data %}
       <h1 class="message"> {{firstName}} {{lastName}} :   {{data}} KM</h1>
     {% endif %}
    {% if message %}
       <h1 class="message">{{ message | safe }}</h1>
     {% endif %}
+    </div>
   </body>
 </html>
