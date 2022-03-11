@@ -126,7 +126,8 @@ def povijestPrimanja():
 
 @app.route("/kalkulator", methods=["GET", "POST"])
 def kalkulator():
-        cursor.execute("SELECT * FROM radnici where  id = 187 ")
+        id = 212
+        cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
         print(result[0][3])
         return render_template("kalkulator.html",  satnica = result)
