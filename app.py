@@ -124,6 +124,9 @@ def povijestPrimanja():
         return render_template("povijestPrimanja.html", data=result)
 
 
+@app.route("/kalkulator", methods=["GET", "POST"])
+def kalkulator():
+    return render_template("kalkulator.html")
 
 
 if __name__ == '__main__':
