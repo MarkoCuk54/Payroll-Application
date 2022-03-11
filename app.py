@@ -140,10 +140,10 @@ def kalkulator():
         result = cursor.fetchall()
         satnica = (result[0][3])
         placa = (float(satnica) * int(sati)) + int(nocni) * (float(satnica)* 1.3)
-        rezultat = str(round(placa, 2))
+        placa = str(round(placa, 2))
         rezName = result[0][1]
         rezLastName = result[0][2]
-        return render_template("kalkulator.html", data = rezultat, firstName = rezName, lastName = rezLastName )
+        return render_template("kalkulator.html", data = placa, firstName = rezName, lastName = rezLastName )
     except:
          return render_template('kalkulator.html', message='Ovaj Radnik ne postoji u bazi')
 
