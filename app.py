@@ -37,35 +37,35 @@ class placaTablica(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     FirstName = db.Column(db.String(30))
     LastName = db.Column(db.String(30))
-    Siječanj = db.Column(db.String(30))
-    Veljača  = db.Column(db.String(30))
-    Ožujak  = db.Column(db.String(30))
-    Travanj  = db.Column(db.String(30))
-    Svibanj  = db.Column(db.String(30))
-    Lipanj  = db.Column(db.String(30))
-    Srpanj  = db.Column(db.String(30))
-    Kolovoz  = db.Column(db.String(30))
-    Rujan  = db.Column(db.String(30))
-    Listopad  = db.Column(db.String(30))
-    Studeni  = db.Column(db.String(30))
-    Prosinac  = db.Column(db.String(30))
+    siječanj = db.Column(db.String(30))
+    veljača  = db.Column(db.String(30))
+    ožujak  = db.Column(db.String(30))
+    travanj  = db.Column(db.String(30))
+    svibanj  = db.Column(db.String(30))
+    lipanj  = db.Column(db.String(30))
+    srpanj  = db.Column(db.String(30))
+    kolovoz  = db.Column(db.String(30))
+    rujan  = db.Column(db.String(30))
+    listopad  = db.Column(db.String(30))
+    studeni  = db.Column(db.String(30))
+    prosinac  = db.Column(db.String(30))
 
-    def __init__(self, id, FirstName, LastName, Siječanj, Veljača, Ožujak, Travanj, Svibanj, Lipanj, Srpanj, Kolovoz, Rujan, Listopad, Studeni, Prosinac):
+    def __init__(self, id, FirstName, LastName, siječanj, veljača, ožujak, travanj, svibanj, lipanj, srpanj, kolovoz, rujan, listopad, studeni, prosinac):
         self.id = id
         self.FirstName = FirstName
         self.LastName = LastName
-        self.Siječanj = Siječanj
-        self.Veljača = Veljača
-        self.Ožujak = Ožujak
-        self.Travanj = Travanj
-        self.Svibanj = Svibanj
-        self.Lipanj = Lipanj
-        self.Srpanj = Srpanj
-        self.Kolovoz = Kolovoz
-        self.Rujan = Rujan
-        self.Listopad = Listopad
-        self.Studeni = Studeni
-        self.Prosinac = Prosinac
+        self.siječanj = siječanj
+        self.veljača = veljača
+        self.ožujak = ožujak
+        self.travanj = travanj
+        self.svibanj = svibanj
+        self.lipanj = lipanj
+        self.srpanj = srpanj
+        self.kolovoz = kolovoz
+        self.rujan = rujan
+        self.listopad = listopad
+        self.studeni = studeni
+        self.prosinac = prosinac
 
 @app.route('/')
 def index():
@@ -102,7 +102,7 @@ def submitNoviRadnik():
         if id == '' or firstName == '' or lastName == "" or Satnica == "":
             return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
         try:
-            data1 = placaTablica(id, firstName, lastName,0,0,0,0,0,0,0,0,0,0,0,0)
+            data1 = placaTablica(id, firstName, lastName,"NaN","NaN","NaN","NaN","NaN","NaN","NaN","NaN","NaN","NaN","NaN","NaN")
             data = Feedback(id, firstName, lastName, Satnica,Odjel, Opis)
             db.session.add(data)
             db.session.add(data1)
@@ -121,7 +121,7 @@ def sviRadnici():
 
 @app.route("/povijestPrimanja", methods=["GET"])
 def povijestPrimanja():
-        cursor.execute("SELECT * FROM placaMjesecna ORDER BY id ")
+        cursor.execute("SELECT * FROM placamjesecna ORDER BY id ")
         result = cursor.fetchall()
         return render_template("povijestPrimanja.html", data=result)
 
@@ -132,7 +132,7 @@ def renderKalkulator():
 
 @app.route("/kalkulatorSubmit", methods=["GET", "POST"])
 def kalkulator():
-    #try:
+    try:
         id = request.form["id"]
         sati = request.form["sati"]
         nocni = request.form["nocni"]
@@ -144,11 +144,14 @@ def kalkulator():
         placa = str(round(placa, 2))
         rezName = result[0][1]
         rezLastName = result[0][2]
-        cursor.execute("INSERT INTO placaTablica (%s) VALUES (%s) where id = (%s)", (mjesec, placa, id))
-        cursor.commit()
+        sql_update_query = "Update placamjesecna set " + mjesec +" = %s where id = %s"
+        cursor.execute(sql_update_query, (placa, id))
+        con.commit()
+        count = cursor.rowcount
+        print(count, "Record Updated successfully ")
         return render_template("kalkulator.html", data = placa, firstName = rezName, lastName = rezLastName )
-    #except:
-         #return render_template('kalkulator.html', message='Ovaj Radnik ne postoji u bazi')
+    except:
+         return render_template('kalkulator.html', message='Ovaj Radnik ne postoji u bazi')
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=5000)
