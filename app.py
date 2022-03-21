@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 import pandas as pd
 
+df = pd.read_excel (r'C:\Users\Marko\Documents\test.xlsx')
+print (df)
 
 app = Flask(__name__)
 con = psycopg2.connect(database="payroll", user="postgres", password="emerus2705", host="127.0.0.1", port="5432")
