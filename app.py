@@ -45,7 +45,7 @@ def submitNoviRadnik():
         if id == '' or firstName == '' or lastName == "" or Satnica == "":
             return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
         try:
-            data1 = placaTablica(id, firstName, lastName,"NaN","NaN","NaN","NaN","NaN","NaN","NaN","NaN","NaN","NaN","NaN","NaN")
+            data1 = placaTablica(id, firstName, lastName,"0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ")
             data = Feedback(id, firstName, lastName, Satnica,Odjel, Opis)
             db.session.add(data)
             db.session.add(data1)
