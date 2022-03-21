@@ -37,18 +37,18 @@ class placaTablica(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     FirstName = db.Column(db.String(30))
     LastName = db.Column(db.String(30))
-    Siječanj = db.Column(db.Float)
-    Veljača  = db.Column(db.Float)
-    Ožujak  = db.Column(db.Float)
-    Travanj  = db.Column(db.Float)
-    Svibanj  = db.Column(db.Float)
-    Lipanj  = db.Column(db.Float)
-    Srpanj  = db.Column(db.Float)
-    Kolovoz  = db.Column(db.Float)
-    Rujan  = db.Column(db.Float)
-    Listopad  = db.Column(db.Float)
-    Studeni  = db.Column(db.Float)
-    Prosinac  = db.Column(db.Float)
+    Siječanj = db.Column(db.String(30))
+    Veljača  = db.Column(db.String(30))
+    Ožujak  = db.Column(db.String(30))
+    Travanj  = db.Column(db.String(30))
+    Svibanj  = db.Column(db.String(30))
+    Lipanj  = db.Column(db.String(30))
+    Srpanj  = db.Column(db.String(30))
+    Kolovoz  = db.Column(db.String(30))
+    Rujan  = db.Column(db.String(30))
+    Listopad  = db.Column(db.String(30))
+    Studeni  = db.Column(db.String(30))
+    Prosinac  = db.Column(db.String(30))
 
     def __init__(self, id, FirstName, LastName, Siječanj, Veljača, Ožujak, Travanj, Svibanj, Lipanj, Srpanj, Kolovoz, Rujan, Listopad, Studeni, Prosinac):
         self.id = id
@@ -132,7 +132,7 @@ def renderKalkulator():
 
 @app.route("/kalkulatorSubmit", methods=["GET", "POST"])
 def kalkulator():
-    try:
+    #try:
         id = request.form["id"]
         sati = request.form["sati"]
         nocni = request.form["nocni"]
@@ -144,9 +144,11 @@ def kalkulator():
         placa = str(round(placa, 2))
         rezName = result[0][1]
         rezLastName = result[0][2]
+        cursor.execute("INSERT INTO placaTablica (%s) VALUES (%s) where id = (%s)", (mjesec, placa, id))
+        cursor.commit()
         return render_template("kalkulator.html", data = placa, firstName = rezName, lastName = rezLastName )
-    except:
-         return render_template('kalkulator.html', message='Ovaj Radnik ne postoji u bazi')
+    #except:
+         #return render_template('kalkulator.html', message='Ovaj Radnik ne postoji u bazi')
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=5000)
