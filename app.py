@@ -1,3 +1,4 @@
+from calendar import c
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
@@ -123,7 +124,6 @@ def sviRadnici():
 def povijestPrimanja():
         cursor.execute("SELECT * FROM placamjesecna ORDER BY id ")
         result = cursor.fetchall()
-        con.close()
         return render_template("povijestPrimanja.html", data=result)
 
 
