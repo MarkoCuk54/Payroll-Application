@@ -136,6 +136,7 @@ def kalkulator():
         id = request.form["id"]
         sati = request.form["sati"]
         nocni = request.form["nocni"]
+        mjesec = request.form["mjesec"]
         cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
         satnica = (result[0][3])
