@@ -1,8 +1,7 @@
-from calendar import c
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
-
+import pandas as pd
 
 
 app = Flask(__name__)

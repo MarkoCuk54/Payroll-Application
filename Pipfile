@@ -15,6 +15,8 @@ virtualenv-clone = "==0.5.7"
 psycopg2 = "*"
 Flask = "*"
 Flask-SQLAlchemy = "*"
+panda = "*"
+pandas = "*"
 
 [dev-packages]
 
