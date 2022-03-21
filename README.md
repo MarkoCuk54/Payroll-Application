@@ -6,7 +6,7 @@ A complete payroll management system with CRUD function on Employee/Role/Departm
 
 **Client:** HTML, CSS, JavsScript
 
-**Server:** Python, PostgreSQL, Flask
+**Server:** Python, PostgreSQL, Flask, Pandas
 
 ## Installation
 
