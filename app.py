@@ -107,6 +107,7 @@ def submitNoviRadnik():
             db.session.add(data)
             db.session.add(data1)
             db.session.commit()
+            con.close()
             return render_template('success.html')
         except:
             return render_template('dodajRadnika.html', message='Ovaj Radnik vec postoji u bazi')
@@ -116,6 +117,7 @@ def submitNoviRadnik():
 def sviRadnici():
         cursor.execute("SELECT * FROM radnici ORDER BY id ")
         result = cursor.fetchall()
+        con.close()
         return render_template("sviRadnici.html", data=result)
         
 
@@ -123,6 +125,7 @@ def sviRadnici():
 def povijestPrimanja():
         cursor.execute("SELECT * FROM placamjesecna ORDER BY id ")
         result = cursor.fetchall()
+        con.close()
         return render_template("povijestPrimanja.html", data=result)
 
 
@@ -147,8 +150,7 @@ def kalkulator():
         sql_update_query = "Update placamjesecna set " + mjesec +" = %s where id = %s"
         cursor.execute(sql_update_query, (placa, id))
         con.commit()
-        count = cursor.rowcount
-        print(count, "Record Updated successfully ")
+        con.close()
         return render_template("kalkulator.html", data = placa, firstName = rezName, lastName = rezLastName )
     except:
          return render_template('kalkulator.html', message='Ovaj Radnik ne postoji u bazi')
