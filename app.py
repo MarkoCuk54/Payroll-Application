@@ -2,7 +2,7 @@ from distutils.command.config import config
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from db import db, Feedback, placaTablica, app, con, cursor
-from excel import ids , sati
+import pandas as pd
 
 
 @app.route('/')
@@ -93,10 +93,16 @@ def kalkulator():
 @app.route("/excelFile")
 def excelFile():
     satiIndex = 0
+    ids = []
+    sati = []
+    excelFile = pd.read_excel (r'C:\Users\Marko\Documents\test.xlsx')
+    for index, row in excelFile.head(n = 50).iterrows():
+        ids.append(row["id"])
+        sati.append(row["sati"])
     for id in ids:
         cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
-        print(result,sati[satiIndex])
+        print(result, sati[satiIndex])
         satiIndex += 1
 
     return render_template("excelFile.html")
