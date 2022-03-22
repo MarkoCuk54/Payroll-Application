@@ -6,7 +6,9 @@ app = Flask(__name__)
 con = psycopg2.connect(database="payroll", user="postgres", password="emerus2705", host="127.0.0.1", port="5432")
 cursor = con.cursor()
 db = SQLAlchemy(app)
-
+app.debug = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:emerus2705@localhost/payroll'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 class Feedback(db.Model):
     __tablename__ = 'radnici'
