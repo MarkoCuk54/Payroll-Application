@@ -1,8 +1,9 @@
 from distutils.command.config import config
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from excel import excelFile, df
+from excel import excelFile
 from db import db, Feedback, placaTablica, app, con, cursor
+
 
 app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:emerus2705@localhost/payroll'
@@ -57,7 +58,7 @@ def submitNoviRadnik():
 def sviRadnici():
         cursor.execute("SELECT * FROM radnici ORDER BY id ")
         result = cursor.fetchall()
-        return render_template("sviRadnici.html", data=result)
+        return render_template("sviRadnici.html", data=excelFile)
         
 
 @app.route("/povijestPrimanja", methods=["GET"])
@@ -68,7 +69,7 @@ def povijestPrimanja():
 
 @app.route("/excelFile")
 def excelFile():
-    return render_template("excelFile.html", data = df)
+    return render_template("excelFile.html", data = excelFile)
 
 @app.route("/kalkulator", methods=["GET", "POST"])
 def renderKalkulator():
