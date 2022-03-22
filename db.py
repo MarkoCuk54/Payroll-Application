@@ -7,6 +7,7 @@ con = psycopg2.connect(database="payroll", user="postgres", password="emerus2705
 cursor = con.cursor()
 db = SQLAlchemy(app)
 
+
 class Feedback(db.Model):
     __tablename__ = 'radnici'
     id = db.Column(db.Integer, primary_key=True)

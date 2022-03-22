@@ -7,7 +7,6 @@ from db import db, Feedback, placaTablica, app, con, cursor
 app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:emerus2705@localhost/payroll'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-print(df)
 
 @app.route('/')
 def index():
