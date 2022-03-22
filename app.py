@@ -2,10 +2,9 @@ from distutils.command.config import config
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from db import db, Feedback, placaTablica, app, con, cursor
-from excel import id, sati
+from excel import ids , sati
 
-#print(id)
-#print(sati)
+
 
 
 @app.route('/')
@@ -95,6 +94,10 @@ def kalkulator():
 
 @app.route("/excelFile")
 def excelFile():
+    for id in ids:
+        cursor.execute("SELECT * FROM radnici where  id = " + str(id))
+        result = cursor.fetchall()
+        print(result)
     return render_template("excelFile.html")
 
 if __name__ == '__main__':
