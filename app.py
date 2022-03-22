@@ -5,8 +5,6 @@ from db import db, Feedback, placaTablica, app, con, cursor
 from excel import ids , sati
 
 
-
-
 @app.route('/')
 def index():
     return render_template('Login.html')
@@ -94,10 +92,13 @@ def kalkulator():
 
 @app.route("/excelFile")
 def excelFile():
+    satiIndex = 0
     for id in ids:
         cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
-        print(result)
+        print(result,sati[satiIndex])
+        satiIndex += 1
+
     return render_template("excelFile.html")
 
 if __name__ == '__main__':
