@@ -1,7 +1,6 @@
 from distutils.command.config import config
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-import psycopg2
 from excel import excelFile
 from db import db, Feedback, placaTablica, app, con, cursor
 
