@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/dodajRadnika.css">
-    <link rel="stylesheet" href="../static/sviRadnici.css" />
-    <title>Svi djelatnici</title>
-  
+        <link rel="stylesheet" href="../static/dodajRadnika.css" />
+    <title>ExcelFile | EMERUS</title>
+<style>
+    p{
+    margin-top: 250px;
+    text-align: center;
+    }
+</style>
+
   </head>
-  
- 
-<body>
-        <div class="header"></div>
+  <body>
+         <div class="header"></div>
         <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
         <label for="openSidebarMenu" class="sidebarIconToggle">
           <div class="spinner diagonal part-1"></div>
@@ -32,59 +34,12 @@
            <form style="text-align: left" action="/dodajRadnika">
             <button id="dodajRadnika">Dodaj Radnika</button></form></li>
             <li><form  style="text-align: left" action="/povijestPrimanja">  <button id="povijestPrimanja">Povijest Primanja</button></form></li>
-                        <li><form  style="text-align: left" action="/kalkulator">  <button id="home">Kalkulator Plate</button></form></li>
-            <li><form  style="text-align: left" action="/excelFile"> <button id="excelFile">ExcelFile</button></form></li>
-
+            <li><form  style="text-align: left" action="/kalkulator">  <button id="home">Kalkulator Plate</button></form></li>
+            <li><form  style="text-align: left" action="/excelFile"> <button id="home">ExcelFile</button></form></li>
           <li><form style="text-align: left" action="/">
             <button id="odjava">Odjava</button></form></form></li>
-          
         </ul>
         </div>
-<br>
-<br>
-<br>
-
-  <div class="table-wrapper">
-    
-        <table class="fl-table">
-          <thead style="text-align: center">
-            <tr>
-              <th>ID</th>
-              <th>Ime</th>
-              <th>Prezime</th>
-              <th>Satnica</th>
-              <th>Odjel</th>
-              <th>Opis</th>
-             
-              
-            </tr>
-          </thead>
-          <div>
-      {% for row in data %}
-      <div>
-          <tbody>
-            <tr>
-              <td class="idSearch">{{row[0]}}</td>
-              <td>{{ row[1] }}</td>
-              <td>{{ row[2] }}</td>
-              <td>{{ row[3] }}</td>
-              <td>{{ row[4] }}</td>
-              <td>{{ row[5] }}</td>
-               
-              
-
-              
-            </tr>
-          </tbody>
-      {% endfor %}
-
-          <tbody></tbody>
-        </table>
-    
-  </div>
-  
-
-
-  
-</body>
+    <p class="message"> {{data}}</p>
+  </body>
 </html>

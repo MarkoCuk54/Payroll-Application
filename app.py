@@ -1,13 +1,13 @@
 from distutils.command.config import config
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from excel import excelFile
+from excel import excelFile, df
 from db import db, Feedback, placaTablica, app, con, cursor
 
 app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:emerus2705@localhost/payroll'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+print(df)
 
 @app.route('/')
 def index():
@@ -67,6 +67,9 @@ def povijestPrimanja():
         result = cursor.fetchall()
         return render_template("povijestPrimanja.html", data=result)
 
+@app.route("/excelFile")
+def excelFile():
+    return render_template("excelFile.html", data = df)
 
 @app.route("/kalkulator", methods=["GET", "POST"])
 def renderKalkulator():
