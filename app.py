@@ -8,7 +8,6 @@ from excel import id, sati
 #print(sati)
 
 
-
 @app.route('/')
 def index():
     return render_template('Login.html')
