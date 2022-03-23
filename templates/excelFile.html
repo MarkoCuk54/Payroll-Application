@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../static/dodajRadnika.css" />
     <title>ExcelFile | EMERUS</title>
-<style>
-    p{
-    margin-top: 250px;
-    text-align: center;
-    }
-</style>
+    <link rel="stylesheet" href="../static/excel.css">
 
   </head>
   <body>
@@ -40,6 +35,21 @@
             <button id="odjava">Odjava</button></form></form></li>
         </ul>
         </div>
-    <p class="message"> {{data}}</p>
+        <div class="resultSec">
+        {% for ime in dataIme %}
+      <div>
+              <h1>{{ime}}</h1>
+      {% endfor %}
+      
+        {% for prezime in dataPrezime %}
+      <div>
+              <h1>{{prezime}}</h1>
+      {% endfor %}
+
+       {% for placa in dataPlaca %}
+      <div>
+              <h1>{{placa}}</h1>
+      {% endfor %}
+      </div>
   </body>
 </html>

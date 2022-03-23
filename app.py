@@ -118,8 +118,7 @@ def excelFile():
         imena.append(ime)
         prezimena.append(prezime)
         satiIndex += 1
-   
-    return render_template("excelFile.html")
+    return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place)
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=5000)
