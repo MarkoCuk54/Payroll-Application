@@ -39,11 +39,12 @@ def submitNoviRadnik():
         Satnica = request.form['Satnica']
         Odjel = request.form["Odjel"]
         Opis = request.form["Opis"]
+        JMBG = request.form["jmbg"]
         if id == '' or firstName == '' or lastName == "" or Satnica == "":
             return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
         try:
             data1 = placaTablica(id, firstName, lastName,"0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ")
-            data = Feedback(id, firstName, lastName, Satnica,Odjel, Opis)
+            data = Feedback(id, firstName, lastName, Satnica,Odjel, Opis, JMBG)
             db.session.add(data)
             db.session.add(data1)
             db.session.commit()
@@ -104,6 +105,7 @@ def excelFile():
         place = []
         imena = []
         prezimena = []
+        jmbgs= []
         excelFile = pd.read_excel (r'C:\Users\Marko\Documents\test.xlsx')
         for index, row in excelFile.head(n = 50).iterrows():
             ids.append(row["id"])
@@ -114,13 +116,15 @@ def excelFile():
             satnica = (result[0][3])
             ime = result[0][1]
             prezime = result[0][2]
+            jmbg = result[0][6]
             placa = (float(satnica) * int(sati[satiIndex]))
             placa = str(round(placa, 2))
             place.append(placa)
             imena.append(ime)
             prezimena.append(prezime)
+            jmbgs.append(jmbg)
             satiIndex += 1
-        return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place, dataId = ids)
+        return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place, dataId = ids, dataJmbg = jmbgs)
     except:
         return render_template("excelFile.html", message = "Nest sa Excel Filom nije uredu!")
 

@@ -19,11 +19,13 @@ class Feedback(db.Model):
     Satnica = db.Column(db.Float)
     Odjel = db.Column(db.String(30))
     Opis = db.Column(db.Text())
+    JMBG   = db.Column(db.String(30))
 
-    def __init__(self, id, FirstName, LastName, Satnica, Odjel, Opis):
+    def __init__(self, id, FirstName, LastName,  Satnica, Odjel, Opis, JMBG):
         self.id = id
         self.FirstName = FirstName
         self.LastName = LastName
+        self.JMBG = JMBG
         self.Satnica = Satnica
         self.Odjel = Odjel
         self.Opis = Opis
