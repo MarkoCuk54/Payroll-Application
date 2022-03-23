@@ -1,6 +1,6 @@
 # Emerus Payroll System :briefcase: :dollar:
 
-A complete payroll management system with CRUD function on Employee/Role/Department/Payroll for our company with the framework Flask.
+A complete payroll management system with CRUD function on Employee/Role/Department/Payroll for our company with the framework Flask.It is possible to import Excel files to automate the payroll process.
 
 ## Tech Stack
 
