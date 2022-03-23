@@ -1,6 +1,7 @@
 from distutils.command.config import config
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from numpy import rint
 from db import db, Feedback, placaTablica, app, con, cursor
 import pandas as pd
 
@@ -93,8 +94,14 @@ def kalkulator():
 @app.route("/excelFile")
 def excelFile():
     satiIndex = 0
+    # Ovdje imam sve IDove:
     ids = []
+    # Ovdje sve sate rasporedeno isto kao Idove:
     sati = []
+    # Ovdje izracunatre place takodjer po Idove:
+    place = []
+    imena = []
+    prezimena = []
     excelFile = pd.read_excel (r'C:\Users\Marko\Documents\test.xlsx')
     for index, row in excelFile.head(n = 50).iterrows():
         ids.append(row["id"])
@@ -103,11 +110,15 @@ def excelFile():
         cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
         satnica = (result[0][3])
+        ime = result[0][1]
+        prezime = result[0][2]
         placa = (float(satnica) * int(sati[satiIndex]))
         placa = str(round(placa, 2))
-        print(result[0][1],result[0][2],placa)
+        place.append(placa)
+        imena.append(ime)
+        prezimena.append(prezime)
         satiIndex += 1
-
+   
     return render_template("excelFile.html")
 
 if __name__ == '__main__':
