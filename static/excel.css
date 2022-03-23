@@ -9,3 +9,7 @@
 .Column {
   display: table-cell;
 }
+
+h1 {
+  color: #56bbf1;
+}
