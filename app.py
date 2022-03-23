@@ -120,7 +120,7 @@ def excelFile():
             imena.append(ime)
             prezimena.append(prezime)
             satiIndex += 1
-        return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place)
+        return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place, dataId = ids)
     except:
         return render_template("excelFile.html", message = "Nest sa Excel Filom nije uredu!")
 

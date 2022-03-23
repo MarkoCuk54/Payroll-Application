@@ -40,6 +40,12 @@
           {% if message %}
           <h1 class="message">{{ message | safe }}</h1>
           {% endif %}
+           <div class="Column">
+        {% for id in dataId %}
+              <h3>{{id}}</h3>
+              <hr>
+      {% endfor %}
+      </div>
           <div class="Column">
         {% for ime in dataIme %}
     
