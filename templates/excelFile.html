@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../static/dodajRadnika.css" />
-    <title>ExcelFile | EMERUS</title>
-    <link rel="stylesheet" href="../static/excel.css">
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/excel.css">
+        <title>ExcelFile | EMERUS</title>
   </head>
   <body>
          <div class="header"></div>
@@ -35,21 +35,31 @@
             <button id="odjava">Odjava</button></form></form></li>
         </ul>
         </div>
-        <div class="resultSec">
+        
+        <div class="Row">
+          {% if message %}
+          <h1 class="message">{{ message | safe }}</h1>
+          {% endif %}
+          <div class="Column">
         {% for ime in dataIme %}
-      <div>
-              <h1>{{ime}}</h1>
+    
+              <h3>{{ime}}</h3>
+              <hr>
       {% endfor %}
-      
+      </div>
+      <div class="Column">
         {% for prezime in dataPrezime %}
-      <div>
-              <h1>{{prezime}}</h1>
+      
+              <h3>{{prezime}}</h3>
+              <hr>
       {% endfor %}
-
+      </div class="Column">
+            <div>
        {% for placa in dataPlaca %}
-      <div>
-              <h1>{{placa}}</h1>
+              <h3>{{placa}} KM</h3>
+              <hr>
       {% endfor %}
+      </div>
       </div>
   </body>
 </html>

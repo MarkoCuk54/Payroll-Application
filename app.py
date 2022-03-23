@@ -1,4 +1,5 @@
 from distutils.command.config import config
+from email import message
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from numpy import rint
@@ -93,32 +94,36 @@ def kalkulator():
 
 @app.route("/excelFile")
 def excelFile():
-    satiIndex = 0
-    # Ovdje imam sve IDove:
-    ids = []
-    # Ovdje sve sate rasporedeno isto kao Idove:
-    sati = []
-    # Ovdje izracunatre place takodjer po Idove:
-    place = []
-    imena = []
-    prezimena = []
-    excelFile = pd.read_excel (r'C:\Users\Marko\Documents\test.xlsx')
-    for index, row in excelFile.head(n = 50).iterrows():
-        ids.append(row["id"])
-        sati.append(row["sati"])
-    for id in ids:
-        cursor.execute("SELECT * FROM radnici where  id = " + str(id))
-        result = cursor.fetchall()
-        satnica = (result[0][3])
-        ime = result[0][1]
-        prezime = result[0][2]
-        placa = (float(satnica) * int(sati[satiIndex]))
-        placa = str(round(placa, 2))
-        place.append(placa)
-        imena.append(ime)
-        prezimena.append(prezime)
-        satiIndex += 1
-    return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place)
+    try:
+        satiIndex = 0
+        # Ovdje imam sve IDove:
+        ids = []
+        # Ovdje sve sate rasporedeno isto kao Idove:
+        sati = []
+        # Ovdje izracunatre place takodjer po Idove:
+        place = []
+        imena = []
+        prezimena = []
+        excelFile = pd.read_excel (r'C:\Users\Marko\Documents\test.xlsx')
+        for index, row in excelFile.head(n = 50).iterrows():
+            ids.append(row["id"])
+            sati.append(row["sati"])
+        for id in ids:
+            cursor.execute("SELECT * FROM radnici where  id = " + str(id))
+            result = cursor.fetchall()
+            satnica = (result[0][3])
+            ime = result[0][1]
+            prezime = result[0][2]
+            placa = (float(satnica) * int(sati[satiIndex]))
+            placa = str(round(placa, 2))
+            place.append(placa)
+            imena.append(ime)
+            prezimena.append(prezime)
+            satiIndex += 1
+        return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place)
+    except:
+        return render_template("excelFile.html", message = "Nest sa Excel Filom nije uredu!")
+
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=5000)
