@@ -41,28 +41,36 @@
           <h1 class="message">{{ message | safe }}</h1>
           {% endif %}
            <div class="Column">
+             <h1>ID</h1>
+             <hr>
         {% for id in dataId %}
-              <h3>{{id}}</h3>
+              <h4>{{id}}</h4>
               <hr>
       {% endfor %}
       </div>
           <div class="Column">
+            <h1>Ime</h1>
+            <hr>
         {% for ime in dataIme %}
     
-              <h3>{{ime}}</h3>
+              <h4>{{ime}}</h4>
               <hr>
       {% endfor %}
       </div>
       <div class="Column">
+        <h1>Prezime</h1>
+        <hr>
         {% for prezime in dataPrezime %}
       
-              <h3>{{prezime}}</h3>
+              <h4>{{prezime}}</h4>
               <hr>
       {% endfor %}
       </div class="Column">
+      <h1>Placa</h1>
+      <hr>
             <div>
        {% for placa in dataPlaca %}
-              <h3>{{placa}} KM</h3>
+              <h4>{{placa}} KM</h4>
               <hr>
       {% endfor %}
       </div>
