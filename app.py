@@ -102,7 +102,10 @@ def excelFile():
     for id in ids:
         cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
-        print(result, sati[satiIndex])
+        satnica = (result[0][3])
+        placa = (float(satnica) * int(sati[satiIndex]))
+        placa = str(round(placa, 2))
+        print(result[0][1],result[0][2],placa)
         satiIndex += 1
 
     return render_template("excelFile.html")
