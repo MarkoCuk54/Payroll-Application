@@ -3,7 +3,7 @@ body {
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
   color: #2b3e51;
-  background-color: #56bbf1;
+  background-image: url("../static/slika-tvornice.jpg");
 }
 
 h2 {
@@ -37,7 +37,7 @@ a:active:hover {
 }
 
 #login-form-wrap {
-  background-color: #fff;
+  background-color: rgba(255 255 255 / 50%);
   width: 35%;
   margin: 10% auto;
   text-align: center;
@@ -68,7 +68,7 @@ input[type="email"] {
   width: 100%;
   padding: 0 0 0 10px;
   margin: 0;
-  color: #8a8b8e;
+  color: black;
   border: 1px solid #c2c0ca;
   font-style: normal;
   font-size: 16px;
