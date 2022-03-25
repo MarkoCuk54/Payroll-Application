@@ -38,7 +38,7 @@ a:active:hover {
 }
 
 #login-form-wrap {
-  background-color: rgba(255 255 255 / 50%);
+  background-color: rgba(255 255 255 / 30%);
   width: 35%;
   margin: 10% auto;
   text-align: center;
@@ -144,7 +144,7 @@ input[type="submit"] {
   display: inline-block;
   cursor: pointer;
   text-align: center;
-  width: 60%;
+  width: 30%;
   margin-bottom: 20px;
 }
 input[type="submit"]:hover {
