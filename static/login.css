@@ -145,6 +145,7 @@ input[type="submit"] {
   cursor: pointer;
   text-align: center;
   width: 60%;
+  margin-bottom: 20px;
 }
 input[type="submit"]:hover {
   background-color: #329dd5;
