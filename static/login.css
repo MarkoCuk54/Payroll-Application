@@ -1,15 +1,15 @@
 body {
-  background-color: #9f9da7;
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
   color: #2b3e51;
-  background-color: #8fbdd3;
+  background-color: #151d3b;
 }
 
 h2 {
   font-weight: 300;
   text-align: center;
   margin: 15px;
+  color: #151d3b;
 }
 
 p {
@@ -38,7 +38,7 @@ a:active:hover {
 }
 
 #login-form-wrap {
-  background-color: rgba(255 255 255 / 30%);
+  background-color: #d82148;
   width: 35%;
   margin: 10% auto;
   text-align: center;
@@ -70,7 +70,7 @@ input[type="email"] {
   padding: 0 0 0 10px;
   margin: 20px 0px 0px 0px;
   color: black;
-  border: 1px solid #c2c0ca;
+  border: 1px solid #151d3b;
   font-style: normal;
   font-size: 16px;
   -webkit-appearance: none;
@@ -132,7 +132,7 @@ input[type="email"]:valid ~ .validation span:last-child {
 input[type="submit"] {
   border: none;
   display: block;
-  background-color: #046ca5;
+  background-color: #151d3b;
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
