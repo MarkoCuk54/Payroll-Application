@@ -83,5 +83,30 @@
       {% endfor %}
       </div>
       </div>
+     <form action="/excelMjesec" method="post">
+
+      <div class="subject">
+          <label for="subject"></label>
+          <select style=" margin-top: 3%;" placeholder="Mjesec" name="mjesec" id="subject_input" required >
+            <option disabled hidden selected>Odaberite Mjesec</option>
+            <option selected value="Siječanj">Siječanj </option>
+            <option value="Veljača">Veljača </option>
+            <option value="Ožujak">Ožujak </option>
+            <option value="Travanj" >Travanj</option>
+            <option value="Svibanj">Svibanj </option>
+            <option value="Lipanj">Lipanj</option>
+            <option value="Srpanj">Srpanj</option>
+            <option value="Kolovoz">Kolovoz</option>
+            <option value="Rujan">Rujan</option>
+            <option value="Listopad">Listopad</option>
+            <option value="Studeni">Studeni</option>
+            <option value="Prosinac">Prosinac</option>
+
+          </select>
+        </div>
+          <div  class="submit">
+            <input type="submit" value="Pošalji" id="form_button" />
+          </div>
+          </form>
   </body>
 </html>
