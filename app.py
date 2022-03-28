@@ -150,6 +150,7 @@ def excelFile():
 
 @app.route("/excelMjesec", methods=["GET", "POST"])
 def excelMjesec():
+    try:
         satiIndex = 0
         # Ovdje imam sve IDove:
         ids = []
@@ -188,6 +189,8 @@ def excelMjesec():
             con.commit()
             satiIndex += 1
         return render_template("home.html")
+    except:
+            return render_template("excelFile.html", message = "Molim vas odaberite mjesec!")
 
 
 if __name__ == '__main__':
