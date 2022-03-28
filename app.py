@@ -109,6 +109,11 @@ def excelFile():
         sati = []
         smjena3list = []
         prekovremeni1i2list = []
+        prvaIdruganedlist = []
+        sedmiI8danlist = []
+        prekovremeniVikendlist = []
+        blagdanlist = []
+        bolovanjeList = []
         # Ovdje izracunatre place takodjer po Idove:
         place = []
         imena = []
@@ -120,6 +125,11 @@ def excelFile():
             sati.append(row["sati"])
             smjena3list.append(row["3.smjena"])
             prekovremeni1i2list.append(row["prekovremeni 1 i 2"])
+            prvaIdruganedlist.append(row["1 i 2 ned"])
+            sedmiI8danlist.append(row["7.8 dan"])
+            prekovremeniVikendlist.append(row["prekovremeni vikend"])
+            blagdanlist.append(row["blagdan"])
+            bolovanjeList.append(row["bolovanje"])
         for id in ids:
             cursor.execute("SELECT * FROM radnici where  id = " + str(id))
             result = cursor.fetchall()
@@ -134,7 +144,7 @@ def excelFile():
             prezimena.append(prezime)
             jmbgs.append(jmbg)
             satiIndex += 1
-            print(prekovremeni1i2list)
+        print(bolovanjeList)
         return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place, dataId = ids, dataJmbg = jmbgs)
     except:
         return render_template("excelFile.html", message = "Nest sa Excel Filom nije uredu!")
