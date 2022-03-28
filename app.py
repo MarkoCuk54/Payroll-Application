@@ -6,6 +6,12 @@ from numpy import rint
 from db import db, Feedback, placaTablica, app, con, cursor
 import pandas as pd
 
+smjena3 = 1.5
+ned1i2 = 1.15
+dan7i8 = 1.5
+vikendPrekovremeni = 1.5
+blagdan = 1.3
+bolovanje = 0.8
 
 @app.route('/')
 def index():
@@ -95,13 +101,7 @@ def kalkulator():
 
 @app.route("/excelFile")
 def excelFile():
-    try:
-        smjena3 = 1.5
-        ned1i2 = 1.15
-        dan7i8 = 1.5
-        vikendPrekovremeni = 1.5
-        blagdan = 1.3
-        bolovanje = 0.8
+    try: 
         satiIndex = 0
         # Ovdje imam sve IDove:
         ids = []
@@ -137,14 +137,13 @@ def excelFile():
             ime = result[0][1]
             prezime = result[0][2]
             jmbg = result[0][6]
-            placa = (float(satnica) * int(sati[satiIndex]))
+            placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje)
             placa = str(round(placa, 2))
             place.append(placa)
             imena.append(ime)
             prezimena.append(prezime)
             jmbgs.append(jmbg)
             satiIndex += 1
-        print(bolovanjeList)
         return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place, dataId = ids, dataJmbg = jmbgs)
     except:
         return render_template("excelFile.html", message = "Nest sa Excel Filom nije uredu!")
