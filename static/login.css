@@ -2,7 +2,7 @@ body {
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
   color: #2b3e51;
-  background-color: #151d3b;
+  background-image: url("./login-page-bg.jpg");
 }
 
 h2 {
@@ -38,7 +38,7 @@ a:active:hover {
 }
 
 #login-form-wrap {
-  background-color: #d82148;
+  background-color: #084594;
   width: 35%;
   margin: 10% auto;
   text-align: center;
