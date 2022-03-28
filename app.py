@@ -107,6 +107,7 @@ def excelFile():
         ids = []
         # Ovdje sve sate rasporedeno isto kao Idove:
         sati = []
+        smjena3list = []
         # Ovdje izracunatre place takodjer po Idove:
         place = []
         imena = []
@@ -116,6 +117,7 @@ def excelFile():
         for index, row in excelFile.head(n = 50).iterrows():
             ids.append(row["id"])
             sati.append(row["sati"])
+            smjena3list.append(row["3.smjena"])
         for id in ids:
             cursor.execute("SELECT * FROM radnici where  id = " + str(id))
             result = cursor.fetchall()
@@ -130,6 +132,7 @@ def excelFile():
             prezimena.append(prezime)
             jmbgs.append(jmbg)
             satiIndex += 1
+            print(smjena3list)
         return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place, dataId = ids, dataJmbg = jmbgs)
     except:
         return render_template("excelFile.html", message = "Nest sa Excel Filom nije uredu!")
