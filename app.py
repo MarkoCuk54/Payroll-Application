@@ -101,7 +101,7 @@ def kalkulator():
         con.commit()
         return render_template("kalkulator.html", data = placa, firstName = rezName, lastName = rezLastName )
     except:
-         return render_template('kalkulator.html', message='Ovaj Radnik ne postoji u bazi')
+         return render_template('error.html', message='Ovaj Radnik ne postoji u bazi')
 
 @app.route("/excelFile")
 def excelFile():
@@ -152,7 +152,7 @@ def excelFile():
             satiIndex += 1
         return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place, dataId = ids, dataJmbg = jmbgs)
     except:
-        return render_template("excelFile.html", message = "Nest sa Excel Filom nije uredu!")
+        return render_template("error.html", message = "Nest sa Excel Filom nije uredu!")
 
 @app.route("/excelMjesec", methods=["GET", "POST"])
 def excelMjesec():
@@ -198,7 +198,7 @@ def excelMjesec():
             satiIndex += 1
         return render_template("home.html")
     except:
-            return render_template("excelFile.html", message = "Molim vas odaberite mjesec!")
+            return render_template("error.html", message = "Molim vas odaberite mjesec!")
 
 
 if __name__ == '__main__':

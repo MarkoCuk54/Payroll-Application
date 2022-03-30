@@ -1,0 +1,20 @@
+h1 {
+  text-align: center;
+  margin-top: 500px;
+  font-size: 25px;
+  padding-bottom: 30px;
+}
+
+#nazad {
+  display: block;
+  width: 100%;
+  background: #5ecccd;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-top: 1rem;
+  font-size: 20px;
+  font-weight: bold;
+}
