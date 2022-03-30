@@ -196,7 +196,7 @@ def excelMjesec():
             cursor.execute(sql_update_query, (placa, id))
             con.commit()
             satiIndex += 1
-        return render_template("home.html")
+        return render_template("error.html", message = "Uspješno spremljeno u povijest primanja.")
     except:
             return render_template("error.html", message = "Molim vas odaberite mjesec!")
 
