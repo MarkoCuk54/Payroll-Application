@@ -9,6 +9,8 @@ vikendPrekovremeni = 1.5
 blagdan = 1.3
 bolovanje = 0.8
 
+
+
 @app.route('/')
 def index():
     return render_template('Login.html')
@@ -122,7 +124,7 @@ def excelFile():
         imena = []
         prezimena = []
         jmbgs= []
-        excelFile = pd.read_excel (r'C:\Users\Marko\Documents\test.xlsx')
+        excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
         for index, row in excelFile.head(n = 50).iterrows():
             ids.append(row["id"])
             sati.append(row["sati"])
@@ -171,7 +173,7 @@ def excelMjesec():
         # Ovdje izracunatre place takodjer po Idove:
         place = []
         mjesec = request.form["mjesec"]
-        excelFile = pd.read_excel (r'C:\Users\Marko\Documents\test.xlsx')
+        excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
         for index, row in excelFile.head(n = 50).iterrows():
             ids.append(row["id"])
             sati.append(row["sati"])
