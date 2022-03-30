@@ -1,8 +1,6 @@
 from distutils.command.config import config
 from email import message
 from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
-from numpy import rint
 from db import db, Feedback, placaTablica, app, con, cursor
 import pandas as pd
 
