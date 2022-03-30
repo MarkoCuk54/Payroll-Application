@@ -85,10 +85,16 @@ def kalkulator():
         sati = request.form["sati"]
         nocni = request.form["nocni"]
         mjesec = request.form["mjesec"]
+        prekovremeni = request.form["prekovremeni"]
+        radNed = request.form["radNed"]
+        prekovremeniVikend = request.form["prekovremeniVikendom"]
+        blagdanSati = request.form["blagdan"]
+        bolovanjeSati = request.form["bolovanje"]
+        bonus = request.form["bonus"]
         cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
         satnica = (result[0][3])
-        placa = (float(satnica) * int(sati)) + int(nocni) * (float(satnica)* 1.3)
+        placa = (float(satnica) * int(sati)) + (int(nocni) * (float(satnica)* smjena3)) + (int(prekovremeni) * float(satnica)) + (int(radNed) * float(satnica) * ned1i2 )  + (float(satnica) * int(prekovremeniVikend) * vikendPrekovremeni) + (float(satnica) * int(blagdanSati) * blagdan) + (float(satnica) * int(bolovanjeSati) * bolovanje) + int(bonus)
         placa = str(round(placa, 2))
         rezName = result[0][1]
         rezLastName = result[0][2]
