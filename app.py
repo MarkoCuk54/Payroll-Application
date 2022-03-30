@@ -197,7 +197,7 @@ def excelMjesec():
             con.commit()
             satiIndex += 1
         return render_template("error.html", message = "Uspješno spremljeno u povijest primanja.")
-    finally:
+    except:
         return render_template("error.html", message = "Molim vas odaberite mjesec!")
 
 
