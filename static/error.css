@@ -1,7 +1,7 @@
 h1 {
   text-align: center;
-  margin-top: 500px;
-  font-size: 25px;
+  margin-top: 400px;
+  font-size: 80px;
   padding-bottom: 30px;
 }
 
@@ -17,4 +17,8 @@ h1 {
   margin-top: 1rem;
   font-size: 20px;
   font-weight: bold;
+}
+
+#nazad:hover {
+  background: #035052;
 }
