@@ -114,6 +114,7 @@ def excelFile():
         prekovremeniVikendlist = []
         blagdanlist = []
         bolovanjeList = []
+        bonusList = []
         # Ovdje izracunatre place takodjer po Idove:
         place = []
         imena = []
@@ -130,6 +131,7 @@ def excelFile():
             prekovremeniVikendlist.append(row["prekovremeni vikend"])
             blagdanlist.append(row["blagdan"])
             bolovanjeList.append(row["bolovanje"])
+            bonusList.append(row["bonus"])
         for id in ids:
             cursor.execute("SELECT * FROM radnici where  id = " + str(id))
             result = cursor.fetchall()
@@ -137,7 +139,7 @@ def excelFile():
             ime = result[0][1]
             prezime = result[0][2]
             jmbg = result[0][6]
-            placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje)
+            placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex])
             placa = str(round(placa, 2))
             place.append(placa)
             imena.append(ime)
@@ -163,6 +165,7 @@ def excelMjesec():
         prekovremeniVikendlist = []
         blagdanlist = []
         bolovanjeList = []
+        bonusList = []
         # Ovdje izracunatre place takodjer po Idove:
         place = []
         mjesec = request.form["mjesec"]
@@ -177,11 +180,12 @@ def excelMjesec():
             prekovremeniVikendlist.append(row["prekovremeni vikend"])
             blagdanlist.append(row["blagdan"])
             bolovanjeList.append(row["bolovanje"])
+            bonusList.append(row["bonus"])
         for id in ids:
             cursor.execute("SELECT * FROM radnici where  id = " + str(id))
             result = cursor.fetchall()
             satnica = (result[0][3])
-            placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje)
+            placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex])
             placa = str(round(placa, 2))
             place.append(placa)
             sql_update_query = "Update placamjesecna set " + mjesec +" = %s where id = %s"
