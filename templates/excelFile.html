@@ -73,14 +73,16 @@
               <p>{{prezime}}</p>
               <hr>
       {% endfor %}
-      </div class="Column">
+      </div>  
+      <div class="Column">
       <h3>Placa</h3>
       <hr>
             <div>
        {% for placa in dataPlaca %}
-              <p>{{placa}} KM</p>
+              <p>{{placa}} KM </p>
               <hr>
       {% endfor %}
+      </div>
       </div>
       </div>
      <form action="/excelMjesec" method="post">
