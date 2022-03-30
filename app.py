@@ -198,7 +198,8 @@ def excelMjesec():
             satiIndex += 1
         return render_template("error.html", message = "Uspješno spremljeno u povijest primanja.")
     except:
-            return render_template("error.html", message = "Molim vas odaberite mjesec!")
+        return render_template("error.html", message = "Molim vas odaberite mjesec!")
+
 
 
 if __name__ == '__main__':
