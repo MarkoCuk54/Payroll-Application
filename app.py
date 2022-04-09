@@ -156,7 +156,6 @@ def excelFile():
 
 @app.route("/excelMjesec", methods=["GET", "POST"])
 def excelMjesec():
-    try:
         satiIndex = 0
         # Ovdje imam sve IDove:
         ids = []
@@ -173,32 +172,33 @@ def excelMjesec():
         # Ovdje izracunatre place takodjer po Idove:
         place = []
         mjesec = request.form["mjesec"]
-        excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
-        for index, row in excelFile.head(n = 50).iterrows():
-            ids.append(row["id"])
-            sati.append(row["sati"])
-            smjena3list.append(row["3.smjena"])
-            prekovremeni1i2list.append(row["prekovremeni 1 i 2"])
-            prvaIdruganedlist.append(row["1 i 2 ned"])
-            sedmiI8danlist.append(row["7.8 dan"])
-            prekovremeniVikendlist.append(row["prekovremeni vikend"])
-            blagdanlist.append(row["blagdan"])
-            bolovanjeList.append(row["bolovanje"])
-            bonusList.append(row["bonus"])
-        for id in ids:
-            cursor.execute("SELECT * FROM radnici where  id = " + str(id))
-            result = cursor.fetchall()
-            satnica = (result[0][3])
-            placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex])
-            placa = str(round(placa, 2))
-            place.append(placa)
-            sql_update_query = "Update placamjesecna set " + mjesec +" = %s where id = %s"
-            cursor.execute(sql_update_query, (placa, id))
-            con.commit()
-            satiIndex += 1
-        return render_template("error.html", message = "Uspješno spremljeno u povijest primanja.")
-    except:
-        return render_template("error.html", message = "Molim vas odaberite mjesec!")
+        try:
+            excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
+            for index, row in excelFile.head(n = 50).iterrows():
+                ids.append(row["id"])
+                sati.append(row["sati"])
+                smjena3list.append(row["3.smjena"])
+                prekovremeni1i2list.append(row["prekovremeni 1 i 2"])
+                prvaIdruganedlist.append(row["1 i 2 ned"])
+                sedmiI8danlist.append(row["7.8 dan"])
+                prekovremeniVikendlist.append(row["prekovremeni vikend"])
+                blagdanlist.append(row["blagdan"])
+                bolovanjeList.append(row["bolovanje"])
+                bonusList.append(row["bonus"])
+            for id in ids:
+                cursor.execute("SELECT * FROM radnici where  id = " + str(id))
+                result = cursor.fetchall()
+                satnica = (result[0][3])
+                placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex])
+                placa = str(round(placa, 2))
+                place.append(placa)
+                sql_update_query = "Update placamjesecna set " + mjesec +" = %s where id = %s"
+                cursor.execute(sql_update_query, (placa, id))
+                con.commit()
+                satiIndex += 1
+            return render_template("error.html", message = "Uspješno spremljeno u povijest primanja.")
+        except:
+            return render_template("error.html", message = "Molim vas odaberite mjesec!")
 
 
 
