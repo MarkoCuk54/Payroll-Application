@@ -105,7 +105,7 @@ def kalkulator():
 
 @app.route("/excelFile")
 def excelFile():
-    try: 
+   
         satiIndex = 0
         # Ovdje imam sve IDove:
         ids = []
@@ -124,35 +124,36 @@ def excelFile():
         imena = []
         prezimena = []
         jmbgs= []
-        excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
-        for index, row in excelFile.head(n = 50).iterrows():
-            ids.append(row["id"])
-            sati.append(row["sati"])
-            smjena3list.append(row["3.smjena"])
-            prekovremeni1i2list.append(row["prekovremeni 1 i 2"])
-            prvaIdruganedlist.append(row["1 i 2 ned"])
-            sedmiI8danlist.append(row["7.8 dan"])
-            prekovremeniVikendlist.append(row["prekovremeni vikend"])
-            blagdanlist.append(row["blagdan"])
-            bolovanjeList.append(row["bolovanje"])
-            bonusList.append(row["bonus"])
-        for id in ids:
-            cursor.execute("SELECT * FROM radnici where  id = " + str(id))
-            result = cursor.fetchall()
-            satnica = (result[0][3])
-            ime = result[0][1]
-            prezime = result[0][2]
-            jmbg = result[0][6]
-            placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex])
-            placa = str(round(placa, 2))
-            place.append(placa)
-            imena.append(ime)
-            prezimena.append(prezime)
-            jmbgs.append(jmbg)
-            satiIndex += 1
-        return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place, dataId = ids, dataJmbg = jmbgs)
-    except:
-        return render_template("error.html", message = "Nest sa Excel Filom nije uredu!")
+        try: 
+            excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
+            for index, row in excelFile.head(n = 50).iterrows():
+                ids.append(row["id"])
+                sati.append(row["sati"])
+                smjena3list.append(row["3.smjena"])
+                prekovremeni1i2list.append(row["prekovremeni 1 i 2"])
+                prvaIdruganedlist.append(row["1 i 2 ned"])
+                sedmiI8danlist.append(row["7.8 dan"])
+                prekovremeniVikendlist.append(row["prekovremeni vikend"])
+                blagdanlist.append(row["blagdan"])
+                bolovanjeList.append(row["bolovanje"])
+                bonusList.append(row["bonus"])
+            for id in ids:
+                cursor.execute("SELECT * FROM radnici where  id = " + str(id))
+                result = cursor.fetchall()
+                satnica = (result[0][3])
+                ime = result[0][1]
+                prezime = result[0][2]
+                jmbg = result[0][6]
+                placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex])
+                placa = str(round(placa, 2))
+                place.append(placa)
+                imena.append(ime)
+                prezimena.append(prezime)
+                jmbgs.append(jmbg)
+                satiIndex += 1
+            return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place, dataId = ids, dataJmbg = jmbgs)
+        except:
+            return render_template("error.html", message = "Nest sa Excel Filom nije uredu!")
 
 @app.route("/excelMjesec", methods=["GET", "POST"])
 def excelMjesec():
@@ -171,8 +172,9 @@ def excelMjesec():
         bonusList = []
         # Ovdje izracunatre place takodjer po Idove:
         place = []
-        mjesec = request.form["mjesec"]
+        
         try:
+            mjesec = request.form["mjesec"]
             excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
             for index, row in excelFile.head(n = 50).iterrows():
                 ids.append(row["id"])
