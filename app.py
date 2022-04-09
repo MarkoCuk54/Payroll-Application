@@ -55,6 +55,8 @@ def submitNoviRadnik():
             db.session.commit()
             return render_template('success.html')
         except:
+            cursor.execute("ROLLBACK")
+            con.commit()
             return render_template('dodajRadnika.html', message='Ovaj Radnik vec postoji u bazi')
 
         
@@ -102,8 +104,9 @@ def kalkulator():
         con.commit()
         return render_template("kalkulator.html", data = placa, firstName = rezName, lastName = rezLastName )
     except:
-         
-         return render_template('error.html', message='Ovaj Radnik ne postoji u bazi')
+        cursor.execute("ROLLBACK")
+        con.commit()
+        return render_template('error.html', message='Ovaj Radnik ne postoji u bazi')
 
 @app.route("/excelFile")
 def excelFile():
@@ -176,7 +179,6 @@ def excelMjesec():
         bonusList = []
         # Ovdje izracunatre place takodjer po Idove:
         place = []
-        
         try:
             mjesec = request.form["mjesec"]
             excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
