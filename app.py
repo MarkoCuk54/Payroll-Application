@@ -2,6 +2,7 @@ from flask import render_template, request
 from db import db, Feedback, placaTablica, app, con, cursor
 import pandas as pd
 
+
 smjena3 = 1.5
 ned1i2 = 1.15
 dan7i8 = 1.5
@@ -101,6 +102,7 @@ def kalkulator():
         con.commit()
         return render_template("kalkulator.html", data = placa, firstName = rezName, lastName = rezLastName )
     except:
+         
          return render_template('error.html', message='Ovaj Radnik ne postoji u bazi')
 
 @app.route("/excelFile")
@@ -153,6 +155,8 @@ def excelFile():
                 satiIndex += 1
             return render_template("excelFile.html", dataIme = imena, dataPrezime = prezimena, dataPlaca = place, dataId = ids, dataJmbg = jmbgs)
         except:
+            cursor.execute("ROLLBACK")
+            con.commit()
             return render_template("error.html", message = "Nest sa Excel Filom nije uredu!")
 
 @app.route("/excelMjesec", methods=["GET", "POST"])
@@ -200,6 +204,8 @@ def excelMjesec():
                 satiIndex += 1
             return render_template("error.html", message = "Uspješno spremljeno u povijest primanja.")
         except:
+            cursor.execute("ROLLBACK")
+            con.commit()
             return render_template("error.html", message = "Molim vas odaberite mjesec!")
 
 

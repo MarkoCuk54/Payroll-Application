@@ -18,6 +18,7 @@ Flask-SQLAlchemy = "*"
 panda = "*"
 pandas = "*"
 openpyxl = "*"
+django = "*"
 
 [dev-packages]
 
