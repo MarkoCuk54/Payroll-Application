@@ -112,7 +112,6 @@ def kalkulator():
 
 @app.route("/excelFile")
 def excelFile():
-   
         satiIndex = 0
         # Ovdje imam sve IDove:
         ids = []
