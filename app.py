@@ -226,7 +226,8 @@ def upload_file():
 def upload_files():
    if request.method == 'POST':
       f = request.files['file']
-      f.save(secure_filename(f.filename))
+      f.filename = "platnalista.xlsx"  #some custom file name that you want
+      f.save("./Uploads/"+f.filename) # path where to save the file
       return render_template("error.html", message = "Sada možete koristiti Excel datoteku.")
 
 
