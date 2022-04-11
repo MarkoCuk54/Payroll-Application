@@ -225,6 +225,7 @@ def upload_file():
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_files():
    if request.method == 'POST':
+# if statement to see if the user upload a valid file ( not empty submit)
       if request.files["file"]:
         f = request.files['file']
         f.filename = "platnalista.xlsx"  #some custom file name that you want
