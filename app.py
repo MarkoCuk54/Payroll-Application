@@ -14,7 +14,7 @@ vikendPrekovremeni = 1.5
 blagdan = 1.3
 bolovanje = 0.8
 
-#Home, Login and Nee Employyes routes :
+#Home, Login and New Employyes routes :
 
 @app.route('/')
 def index():
@@ -216,7 +216,7 @@ def excelMjesec():
             con.commit()
             return render_template("error.html", message = "Molim vas odaberite mjesec!")
 
-#Upload roztes :
+#Upload routes :
 
 @app.route('/upload')
 def upload_file():
