@@ -32,6 +32,9 @@ body {
 .h1 {
   text-align: center;
 }
+#header {
+  margin-top: 25px;
+}
 form {
   margin: 0 auto;
   width: 600px;

@@ -222,7 +222,8 @@ def upload_files():
    if request.method == 'POST':
       f = request.files['file']
       f.save(secure_filename(f.filename))
-      return 'file uploaded successfully'
+      return render_template("error.html", message = "Sada možete koristiti Excel datoteku.")
+
 
 
 if __name__ == '__main__':
