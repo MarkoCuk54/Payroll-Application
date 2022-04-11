@@ -1,6 +1,9 @@
 from flask import render_template, request
 from db import db, Feedback, placaTablica, app, con, cursor
 import pandas as pd
+from werkzeug.utils import secure_filename
+from werkzeug.datastructures import  FileStorage
+
 
 
 smjena3 = 1.5
@@ -9,7 +12,6 @@ dan7i8 = 1.5
 vikendPrekovremeni = 1.5
 blagdan = 1.3
 bolovanje = 0.8
-
 
 
 @app.route('/')
@@ -210,6 +212,17 @@ def excelMjesec():
             con.commit()
             return render_template("error.html", message = "Molim vas odaberite mjesec!")
 
+
+@app.route('/upload')
+def upload_file():
+   return render_template('upload.html')
+	
+@app.route('/uploader', methods = ['GET', 'POST'])
+def upload_files():
+   if request.method == 'POST':
+      f = request.files['file']
+      f.save(secure_filename(f.filename))
+      return 'file uploaded successfully'
 
 
 if __name__ == '__main__':

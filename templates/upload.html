@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/dodajRadnika.css">
-    <link rel="stylesheet" href="../static/sviRadnici.css" />
-    <title>Svi djelatnici</title>
-  
+    <title>Upload</title>
+        <link rel="stylesheet" href="../static/dodajRadnika.css" />
+        <link rel="stylesheet" href="../static/upload.css">
+
   </head>
-  
- 
-<body>
-        <div class="header"></div>
+  <body>
+    <html>
+      <body>
+           <div class="header"></div>
         <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
         <label for="openSidebarMenu" class="sidebarIconToggle">
           <div class="spinner diagonal part-1"></div>
@@ -42,51 +41,15 @@
           
         </ul>
         </div>
-<br>
-<br>
-<br>
-
-  <div class="table-wrapper">
-    
-        <table class="fl-table">
-          <thead style="text-align: center">
-            <tr>
-              <th>ID</th>
-              <th>Ime</th>
-              <th>Prezime</th>
-              <th>Satnica</th>
-              <th>Odjel</th>
-              <th>Opis</th>
-             
-              
-            </tr>
-          </thead>
-          <div>
-      {% for row in data %}
-      <div>
-          <tbody>
-            <tr>
-              <td class="idSearch">{{row[0]}}</td>
-              <td>{{ row[1] }}</td>
-              <td>{{ row[2] }}</td>
-              <td>{{ row[3] }}</td>
-              <td>{{ row[4] }}</td>
-              <td>{{ row[5] }}</td>
-               
-              
-
-              
-            </tr>
-          </tbody>
-      {% endfor %}
-
-          <tbody></tbody>
-        </table>
-    
-  </div>
-  
-
-
-  
-</body>
+        <form id="upload"
+          action="http://localhost:5000/uploader"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <input type="file" name="file" />
+          <input type="submit" />
+        </form>
+      </body>
+    </html>
+  </body>
 </html>
