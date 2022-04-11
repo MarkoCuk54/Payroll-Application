@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 
 
+# var for the koficijent:
 
 smjena3 = 1.5
 ned1i2 = 1.15
@@ -13,6 +14,7 @@ vikendPrekovremeni = 1.5
 blagdan = 1.3
 bolovanje = 0.8
 
+#Home, Login and Nee Employyes routes :
 
 @app.route('/')
 def index():
@@ -76,6 +78,7 @@ def povijestPrimanja():
         return render_template("povijestPrimanja.html", data=result)
 
 
+#Calculator routes :
 
 @app.route("/kalkulator", methods=["GET", "POST"])
 def renderKalkulator():
@@ -109,6 +112,8 @@ def kalkulator():
         cursor.execute("ROLLBACK")
         con.commit()
         return render_template('error.html', message='Ovaj Radnik ne postoji u bazi')
+
+#Excel file routes :
 
 @app.route("/excelFile")
 def excelFile():
@@ -211,6 +216,7 @@ def excelMjesec():
             con.commit()
             return render_template("error.html", message = "Molim vas odaberite mjesec!")
 
+#Upload roztes :
 
 @app.route('/upload')
 def upload_file():
@@ -222,6 +228,8 @@ def upload_files():
       f = request.files['file']
       f.save(secure_filename(f.filename))
       return render_template("error.html", message = "Sada možete koristiti Excel datoteku.")
+
+
 
 
 
