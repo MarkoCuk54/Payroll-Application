@@ -225,10 +225,13 @@ def upload_file():
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_files():
    if request.method == 'POST':
-      f = request.files['file']
-      f.filename = "platnalista.xlsx"  #some custom file name that you want
-      f.save("./Uploads/"+f.filename) # path where to save the file
-      return render_template("error.html", message = "Sada možete koristiti Excel datoteku.")
+      if request.files["file"]:
+        f = request.files['file']
+        f.filename = "platnalista.xlsx"  #some custom file name that you want
+        f.save("./Uploads/"+f.filename) # path where to save the file
+        return render_template("error.html", message = "Sada možete koristiti Excel datoteku.")
+      else:
+        return render_template("error.html", message = "Ovo nije valjana Excel datoteka")
 
 
 
