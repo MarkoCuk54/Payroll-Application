@@ -17,3 +17,8 @@
   background-color: #32a1ce;
   color: black;
 }
+
+.button:hover {
+  background-color: #219f94;
+  border-radius: 0px;
+}
