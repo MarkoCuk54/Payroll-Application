@@ -50,6 +50,10 @@ a:active:hover {
   padding-bottom: 20px;
 }
 
+h2 {
+  font-family: "Courier New", Courier, monospace;
+}
+
 #login-form {
   padding: 0 60px;
 }
