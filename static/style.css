@@ -75,6 +75,16 @@ form {
   font-size: 20px;
 }
 
+.buttons {
+  background: #474544;
+  color: white;
+  border-radius: 5px;
+}
+
+.buttons:hover {
+  cursor: pointer;
+}
+
 .mainInner {
   display: table;
   margin-top: -680px;
