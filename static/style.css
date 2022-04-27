@@ -74,6 +74,20 @@ form {
   border: 0;
   font-size: 20px;
 }
+#form-odjava {
+  margin-top: 40px;
+}
+
+#button-odjava {
+  background-color: #6fdfdf;
+  color: #474544;
+  font-weight: 800;
+}
+
+#button-odjava:hover {
+  background-color: #5fcdcd;
+}
+
 .button-div {
   margin-top: 50vh;
   text-align: center;
@@ -83,10 +97,12 @@ form {
   background: #474544;
   color: white;
   border-radius: 5px;
+  font-size: 20px;
 }
 
 .buttons:hover {
   cursor: pointer;
+  background-color: #5a5a5a;
 }
 
 .button-form {
