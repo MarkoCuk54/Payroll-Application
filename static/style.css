@@ -74,6 +74,10 @@ form {
   border: 0;
   font-size: 20px;
 }
+.button-div {
+  margin-top: 50vh;
+  text-align: center;
+}
 
 .buttons {
   background: #474544;
@@ -83,6 +87,11 @@ form {
 
 .buttons:hover {
   cursor: pointer;
+}
+
+.button-form {
+  display: inline;
+  margin: 10px;
 }
 
 .mainInner {
