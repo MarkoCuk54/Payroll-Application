@@ -22,10 +22,24 @@ h1 {
     padding-top: 50px;
 }
 
+#button-delete {
+    background-color: #5ccbcb;
+    color: black;
+    border-radius: 10px;
+}
+
+#button-delete:hover {
+    cursor: pointer;
+    background-color: #046c94;
+    color: #fff;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Anton|Roboto");
 .delete-form {
     margin-top: 20px;
+    margin-left: 20px;
     text-align: left !important;
+    display: inline-flex;
 }
 
 .word {
