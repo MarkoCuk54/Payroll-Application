@@ -35,6 +35,11 @@ h1 {
 }
 
 @import url("https://fonts.googleapis.com/css?family=Anton|Roboto");
+.edit-form {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
 .delete-form {
     margin-top: 20px;
     margin-left: 20px;
