@@ -1,7 +1,6 @@
 from flask import render_template, request
 from db import db, Feedback, placaTablica, app, con, cursor
 import pandas as pd
-from werkzeug.utils import secure_filename
 
 
 # var for the koficijent:
