@@ -1,92 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    
+
+<head>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/dodajRadnika.css">
     <link rel="stylesheet" href="../static/sviRadnici.css" />
     <title>Svi djelatnici</title>
-  
-  </head>
-  
- 
+
+</head>
+
+
 <body>
-        <div class="header"></div>
-        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-        <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="header"></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
           <div class="spinner diagonal part-1"></div>
           <div class="spinner horizontal"></div>
           <div class="spinner diagonal part-2"></div>
         </label>
-        <div id="sidebarMenu">
-          <ul class="sidebarMenuInner">
-          <li>EMERUS <span>Payroll System</span></li>
-          <li><form style="text-align: left" action="/home">
-            <button id="home">Početna stranica</button>
-          </form></li>
-          <li><form style="text-align: left" action="/sviRadnici">
-            <button id="sviRadnici">Svi Radnici</button>
-          </form></li><li>
-           <form style="text-align: left" action="/dodajRadnika">
-            <button id="dodajRadnika">Dodaj Radnika</button></form></li>
-            <li><form  style="text-align: left" action="/povijestPrimanja">  <button id="povijestPrimanja">Povijest Primanja</button></form></li>
-                        <li><form  style="text-align: left" action="/kalkulator">  <button id="home">Kalkulator Plate</button></form></li>
-            <li><form  style="text-align: left" action="/excelFile"> <button id="home">ExcelFile</button></form></li>
-                        <li><form  style="text-align: left" action="/upload"> <button id="home">Učitaj novi Excel</button></form></li>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <li>EMERUS <span>Payroll System</span></li>
+            <li>
+                <form style="text-align: left" action="/home">
+                    <button id="home">Početna stranica</button>
+                </form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/sviRadnici">
+                    <button id="sviRadnici">Svi Radnici</button>
+                </form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/dodajRadnika">
+                    <button id="dodajRadnika">Dodaj Radnika</button></form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/povijestPrimanja"> <button id="povijestPrimanja">Povijest Primanja</button></form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/kalkulator"> <button id="home">Kalkulator Plate</button></form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/excelFile"> <button id="home">ExcelFile</button></form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/upload"> <button id="home">Učitaj novi Excel</button></form>
+            </li>
 
 
-          <li><form style="text-align: left" action="/">
-            <button id="odjava">Odjava</button></form></form></li>
-          
+            <li>
+                <form style="text-align: left" action="/">
+                    <button id="odjava">Odjava</button></form>
+                </form>
+            </li>
+
         </ul>
-        </div>
-<br>
-<br>
-<br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <form class="delete-form" action="/deleteUser" method="post">
+        <input autocomplete="off" type="number" min=1 max=999 name="ID" placeholder="ID">
+        <input type="submit" value="Izbrisati">
 
-  <div class="table-wrapper">
+
+    </form>
+
+    <div class="table-wrapper">
 
         <table class="fl-table">
-          <thead style="text-align: center">
-            <tr>
-              <th>ID</th>
-              <th>Ime</th>
-              <th>Prezime</th>
-              <th>Satnica</th>
-              <th>Odjel</th>
-              <th>Opis</th>
-             
-              
-            </tr>
-          </thead>
-          <div>
-      {% for row in data %}
-      <div>
-          <tbody>
-            <tr>
-              <td class="idSearch">{{row[0]}}</td>
-              <td>{{ row[1] }}</td>
-              <td>{{ row[2] }}</td>
-              <td>{{ row[3] }}</td>
-              <td>{{ row[4] }}</td>
-              <td>{{ row[5] }}</td>
-               
-              
+            <thead style="text-align: center">
+                <tr>
+                    <th>ID</th>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Satnica</th>
+                    <th>Odjel</th>
+                    <th>Opis</th>
 
-              
-            </tr>
-          </tbody>
-      {% endfor %}
 
-          <tbody></tbody>
+                </tr>
+            </thead>
+            <div>
+                {% for row in data %}
+                <div>
+                    <tbody>
+                        <tr>
+                            <td class="idSearch">{{row[0]}}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+                            <td>{{ row[5] }}</td>
+
+
+
+
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+
+                    <tbody></tbody>
         </table>
-    
-  </div>
-  
+
+        </div>
 
 
-  
+
+
 </body>
+
 </html>
