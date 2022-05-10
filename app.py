@@ -40,13 +40,17 @@ def dodajRadnik():
 
 @app.route('/deleteUser', methods=["POST"])
 def deleteUser():
-     id = request.form["id"]
-    #print(id)
-     db.session.query(Feedback).filter(Feedback.id==id).delete()
-     db.session.query(placaTablica).filter(placaTablica.id==id).delete()
-     db.session.commit()        
-     message='Uspješno ste izbrisali zaposlenika'
-     return render_template('error.html', message=message)
+    try:
+        id = request.form["id"]
+        db.session.query(Feedback).filter(Feedback.id==id).delete()
+        db.session.query(placaTablica).filter(placaTablica.id==id).delete()
+        db.session.commit()        
+        message='Uspješno ste izbrisali zaposlenika'
+        return render_template('error.html', message=message)
+    except:
+        message = "ID ne postoji u Bazi"
+        return render_template('error.html', message=message)
+
 
 
 @app.route('/submit_noviRadnik', methods=['POST'])
