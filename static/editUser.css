@@ -9,17 +9,3 @@ h1 {
     color: #000;
     text-align: center;
 }
-
-#button-back {
-    background-color: #5ccbcb;
-    color: black;
-    border-radius: 10px;
-    padding: 5px;
-    font-size: 20px;
-}
-
-#button-back:hover {
-    cursor: pointer;
-    background-color: #5a5a5a;
-    color: whitesmoke;
-}

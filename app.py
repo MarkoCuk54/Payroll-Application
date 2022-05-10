@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request
-from database.db import db, Feedback, placaTablica, app, con, cursor
+from flask import render_template, request
+from db import db, Feedback, placaTablica, app, con, cursor
 import pandas as pd
-
-app=Flask(__name__,template_folder='templates')
+from werkzeug.utils import secure_filename
+from werkzeug.datastructures import  FileStorage
 
 
 # var for the koficijent:
