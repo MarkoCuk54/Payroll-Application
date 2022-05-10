@@ -56,8 +56,7 @@ def editUser():
         id = request.form["idEdit"]
         cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
-        print(result)
-        return render_template('editUser.html')
+        return render_template('editUser.html', data=result[0])
  
 
 
