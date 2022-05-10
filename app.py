@@ -42,7 +42,9 @@ def dodajRadnik():
 def deleteUser():
      id = request.form["id"]
     #print(id)
-    
+     db.session.query(Feedback).filter(Feedback.id==id).delete()
+     db.session.query(placaTablica).filter(placaTablica.id==id).delete()
+     db.session.commit()        
      message='Uspješno ste izbrisali zaposlenika'
      return render_template('error.html', message=message)
 
