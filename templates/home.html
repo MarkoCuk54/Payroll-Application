@@ -1,61 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/style.css">
     <title>Početna stranica</title>
-  </head>
- 
-  <div class="header"></div>
-  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-  <label for="openSidebarMenu" class="sidebarIconToggle">
+</head>
+
+<div class="header"></div>
+<input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+<label for="openSidebarMenu" class="sidebarIconToggle">
     <div class="spinner diagonal part-1"></div>
     <div class="spinner horizontal"></div>
     <div class="spinner diagonal part-2"></div>
   </label>
-  <div id="sidebarMenu">
-     <ul class="sidebarMenuInner">
-      <li>EMERUS <span>Payroll System</span></li>
-      <li><form style="text-align: left" action="/home">
-        <button id="home">Početna stranica</button>
-      </form></li>
-      <li><form style="text-align: left" action="/sviRadnici">
-        <button id="sviRadnici">Svi Radnici</button>
-      </form></li><li>
-       <form style="text-align: left" action="/dodajRadnika">
-        <button id="dodajRadnika">Dodaj Radnika</button></form></li>
-        <li><form  style="text-align: left" action="/povijestPrimanja">  <button id="povijestPrimanja">Povijest Primanja</button></form></li>
-        <li><form  style="text-align: left" action="/kalkulator">  <button id="home">Kalkulator Plate</button></form></li>
-        <li><form  style="text-align: left" action="/excelFile"> <button id="home">ExcelFile</button></form></li>
-        <li><form  style="text-align: left" action="/upload"> <button id="home">Učitaj novi Excel</button></form></li>
-      <li><form style="text-align: left" action="/">
-        <button id="odjava">Odjava</button></form></form></li>
+<div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+        <li>EMERUS <span>Payroll System</span></li>
+        <li>
+            <form style="text-align: left" action="/home">
+                <button id="home">Početna stranica</button>
+            </form>
+        </li>
+        <li>
+            <form style="text-align: left" action="/sviRadnici">
+                <button id="sviRadnici">Svi Radnici</button>
+            </form>
+        </li>
+        <li>
+            <form style="text-align: left" action="/dodajRadnika">
+                <button id="dodajRadnika">Dodaj Radnika</button></form>
+        </li>
+        <li>
+            <form style="text-align: left" action="/povijestPrimanja"> <button id="povijestPrimanja">Povijest Primanja</button></form>
+        </li>
+        <li>
+            <form style="text-align: left" action="/kalkulator"> <button id="home">Kalkulator Plate</button></form>
+        </li>
+        <li>
+            <form style="text-align: left" action="/excelFile"> <button id="home">ExcelFile</button></form>
+        </li>
+        <li>
+            <form style="text-align: left" action="/upload"> <button id="home">Učitaj novi Excel</button></form>
+        </li>
+        <li>
+            <form style="text-align: left" action="/">
+                <button id="odjava">Odjava</button></form>
+            </form>
+        </li>
     </ul>
 
 
-  </div>
-  <div id='center' class="main center">
+</div>
+<div id='center' class="main center">
     <div class="mainInner1">
-      <img src="../static/slika1.png" alt="" class="center" >
+        <img src="../static/slika1.png" alt="" class="center">
     </div>
-  <div id='center' class="main center">
-    <div class="mainInner">
-      <h1 id="header" >Dobrodošli na Emerus Payroll System!</h1>
-  </div>
+    <div id='center' class="main center">
+        <div class="mainInner">
+            <h1 id="header">Dobrodošli na Emerus Payroll System!</h1>
+        </div>
 
-    <div class="button-div">
-      <form class="button-form"  action="/sviRadnici">
-        <button class="buttons" >Svi Radnici</button>
-      </form>
-       <form class="button-form" action="/dodajRadnika">
-        <button class="buttons">Dodaj Radnika</button></form>
-        <form  class="button-form" action="/povijestPrimanja">  <button class="buttons">Povijest Primanja</button></form>
-        <form  class="button-form" action="/kalkulator">  <button class="buttons">Kalkulator Plate</button></form>
-        <form  class="button-form" action="/excelFile"> <button class="buttons">ExcelFile</button></form>
-        <form  class="button-form" action="/upload"> <button class="buttons">Učitaj novi Excel</button></form>
-        <form id="form-odjava" action="/">
-        <button id="button-odjava" class="buttons">Odjava</button></form>
+        <div class="button-div">
+            <form class="button-form" action="/sviRadnici"> <button class="buttons">Svi Radnici</button></form>
+            <form class="button-form" action="/dodajRadnika">
+                <button class="buttons">Dodaj Radnika</button></form>
+            <form class="button-form" action="/povijestPrimanja"> <button class="buttons">Povijest Primanja</button></form>
+            <form class="button-form" action="/kalkulator"> <button class="buttons">Kalkulator Plate</button></form>
+            <form class="button-form" action="/excelFile"> <button class="buttons">ExcelFile</button></form>
+            <form class="button-form" action="/upload"> <button class="buttons">Učitaj novi Excel</button></form>
+            <form class="button-form" action="/">
+                <button id="button-odjava" class="buttons">Odjava</button></form>
+        </div>
     </div>
-  </div>

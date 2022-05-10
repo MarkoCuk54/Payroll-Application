@@ -97,7 +97,9 @@ form {
 
 .button-div {
     margin-top: 50vh;
-    text-align: center;
+    text-align: right;
+    display: grid;
+    margin-left: 60vw;
 }
 
 .buttons {
