@@ -1,6 +1,8 @@
-from flask import render_template, request
+from flask import Flask, render_template, request
 from database.db import db, Feedback, placaTablica, app, con, cursor
 import pandas as pd
+
+app=Flask(__name__,template_folder='templates')
 
 
 # var for the koficijent:
