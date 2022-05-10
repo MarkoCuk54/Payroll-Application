@@ -38,6 +38,14 @@ def login():
 def dodajRadnik():
     return render_template("dodajRadnika.html")
 
+@app.route('/deleteUser', methods=["POST"])
+def deleteUser():
+     id = request.form["id"]
+    #print(id)
+    
+     message='Uspješno ste izbrisali zaposlenika'
+     return render_template('error.html', message=message)
+
 
 @app.route('/submit_noviRadnik', methods=['POST'])
 def submitNoviRadnik():
