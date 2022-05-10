@@ -51,12 +51,19 @@ def deleteUser():
         message = "ID ne postoji u Bazi"
         return render_template('error.html', message=message)
 
+
+
 @app.route('/editUser', methods=["GET", "POST"])
 def editUser():
         id = request.form["idEdit"]
-        cursor.execute("SELECT * FROM radnici where  id = " + str(id))
-        result = cursor.fetchall()
-        return render_template('editUser.html', data=result[0])
+        if(id != ""):
+            cursor.execute("SELECT * FROM radnici where  id = " + str(id))
+            result = cursor.fetchall()
+            return render_template('editUser.html', data=result[0])
+        else:
+            message = "ID ne postoji u Bazi"
+            return render_template('error.html', message=message)
+            
  
 
 
