@@ -14,7 +14,7 @@ vikendPrekovremeni = 1.5
 blagdan = 1.3
 bolovanje = 0.8
 
-#Home, Login and New Employyes routes :
+#Home, Login, Edit, Delete and New Employyes routes :
 
 @app.route('/')
 def index():
