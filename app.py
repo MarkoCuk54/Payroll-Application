@@ -60,6 +60,7 @@ def editUser():
             try:
                 cursor.execute("SELECT * FROM radnici where  id = " + str(id))
                 result = cursor.fetchall()
+                print(result)
                 return render_template('editUser.html', data=result[0])
             except:
                 message = "ID ne postoji u Bazi"
