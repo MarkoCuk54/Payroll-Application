@@ -42,4 +42,18 @@ h1 {
     text-align: center;
     padding: 10px;
     border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+#editButton {
+    background-color: #5ccbcb;
+    color: black;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+#editButton:hover {
+    cursor: pointer;
+    background-color: #046c94;
+    color: #fff;
 }
