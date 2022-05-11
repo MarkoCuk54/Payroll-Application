@@ -24,13 +24,14 @@
         <p>{{data[4]}}</p>
         <hr />
         <h4>Satnica:</h4>
-        <p>{{data[3]}}</p>
+        <p style="display: contents">Trenutna : {{data[3]}}KM</p>
+        <label style="margin-left: 40px" for="satnica">Promjeni Satnicu : </label>
+        <input type="text" placeholder="Nova satnica" name="satnica" id="satnica" />
         <hr />
         <h4>Opis:</h4>
         <p>{{data[5]}}</p>
         <hr />
     </div>
-
     <form class="form-nazad" action="/sviRadnici">
         <button class="button-nazad">Nazad</button>
     </form>

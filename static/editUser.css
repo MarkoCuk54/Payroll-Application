@@ -34,3 +34,12 @@ h1 {
 .info {
     margin: 40px 40px 0px 40px;
 }
+
+#satnica {
+    width: 20%;
+    text-decoration: none;
+    border: solid #5ccbcb 1px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
