@@ -57,11 +57,15 @@ def deleteUser():
 def editUser():
         id = request.form["idEdit"]
         if(id != ""):
-            cursor.execute("SELECT * FROM radnici where  id = " + str(id))
-            result = cursor.fetchall()
-            return render_template('editUser.html', data=result[0])
+            try:
+                cursor.execute("SELECT * FROM radnici where  id = " + str(id))
+                result = cursor.fetchall()
+                return render_template('editUser.html', data=result[0])
+            except:
+                message = "ID ne postoji u Bazi"
+                return render_template('error.html', message=message)
         else:
-            message = "ID ne postoji u Bazi"
+            message = "Id polje ne smije biti prazno"
             return render_template('error.html', message=message)
             
  
