@@ -9,3 +9,24 @@ h1 {
     color: #000;
     text-align: center;
 }
+
+.form-nazad {
+    position: absolute;
+    bottom: 10px;
+    width: 50%;
+    margin-left: 46%;
+}
+
+.button-nazad {
+    background-color: #5ccbcb;
+    color: black;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 0 20px;
+}
+
+.button-nazad:hover {
+    cursor: pointer;
+    background-color: #046c94;
+    color: #fff;
+}
