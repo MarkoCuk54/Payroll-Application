@@ -68,8 +68,13 @@ def editUser():
             message = "Id polje ne smije biti prazno"
             return render_template('error.html', message=message)
             
- 
-
+@app.route('/changeSatnica', methods=[ "POST"])
+def changeSatnica():
+        novaSatnica = request.form["satnica"]
+        print(novaSatnica)
+        message = "Uspješno ste promijenili satnicu."
+        return render_template('error.html', message=message) 
+       
 
 @app.route('/submit_noviRadnik', methods=['POST'])
 def submitNoviRadnik():
