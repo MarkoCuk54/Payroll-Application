@@ -1,153 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    
+
+<head>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/sviRadnici.css" />
     <title>Povijest primanja</title>
-  
-  </head>
-  
-  <!DOCTYPE html>
-  
-  <html lang="en">
-    
-  <head>
-      
+
+</head>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
     <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="../static/dodajRadnika.css" />
-      <title>Dodaj Radnika</title>
-      
-      <style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/dodajRadnika.css" />
+    <title>Dodaj Radnika</title>
+
+    <style>
         h1 {
-          text-align: center;
+            text-align: center;
         }
-       
-       </style>
+    </style>
 
-    </head>
-    
-    <body>
-      
-      <html>
+</head>
 
-        <div class="header"></div>
+<body>
 
-        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-        <label for="openSidebarMenu" class="sidebarIconToggle">
+    <html>
+
+    <div class="header"></div>
+
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
           <div class="spinner diagonal part-1"></div>
           <div class="spinner horizontal"></div>
           <div class="spinner diagonal part-2"></div>
         </label>
-        <div id="sidebarMenu">
-          <ul class="sidebarMenuInner">
-           <ul class="sidebarMenuInner">
-          <li>EMERUS <span>Payroll System</span></li>
-          <li><form style="text-align: left" action="/home">
-            <button id="home">Početna stranica</button>
-          </form></li>
-          <li><form style="text-align: left" action="/sviRadnici">
-            <button id="sviRadnici">Svi Radnici</button>
-          </form></li><li>
-           <form style="text-align: left" action="/dodajRadnika">
-            <button id="dodajRadnika">Dodaj Radnika</button></form></li>
-            <li><form  style="text-align: left" action="/povijestPrimanja">  <button id="povijestPrimanja">Povijest Primanja</button></form></li>
-                        <li><form  style="text-align: left" action="/kalkulator">  <button id="home">Kalkulator Plate</button></form></li>
-            <li><form  style="text-align: left" action="/excelFile"> <button id="home">ExcelFile</button></form></li>
-                        <li><form  style="text-align: left" action="/upload"> <button id="home">Učitaj novi Excel</button></form></li>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <ul class="sidebarMenuInner">
+                <li>EMERUS <span>Payroll System</span></li>
+                <li>
+                    <form style="text-align: left" action="/home">
+                        <button id="home">Početna stranica</button>
+                    </form>
+                </li>
+                <li>
+                    <form style="text-align: left" action="/sviRadnici">
+                        <button id="sviRadnici">Svi Radnici</button>
+                    </form>
+                </li>
+                <li>
+                    <form style="text-align: left" action="/dodajRadnika">
+                        <button id="dodajRadnika">Dodaj Radnika</button></form>
+                </li>
+                <li>
+                    <form style="text-align: left" action="/povijestPrimanja"> <button id="povijestPrimanja">Povijest Primanja</button></form>
+                </li>
+                <li>
+                    <form style="text-align: left" action="/kalkulator"> <button id="home">Kalkulator Plate</button></form>
+                </li>
+                <li>
+                    <form style="text-align: left" action="/excelFile"> <button id="home">ExcelFile</button></form>
+                </li>
+                <li>
+                    <form style="text-align: left" action="/upload"> <button id="home">Učitaj novi Excel</button></form>
+                </li>
 
 
-          <li><form style="text-align: left" action="/">
-            <button id="odjava">Odjava</button></form></form></li>
-          
+                <li>
+                    <form style="text-align: left" action="/">
+                        <button id="odjava">Odjava</button></form>
+                    </form>
+                </li>
+
+            </ul>
+
         </ul>
-            
-          </ul>
-        </div>
-<br>
-<br>
-<br>
-  <div class="table-wrapper">
-    
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <form class="edit-form" action="/povijestDizanje" method="post">
+        <input style="margin-right: 10px" autocomplete="off" type="number" min=1 max=999 name="idEdit" placeholder="ID">
+        <input id="button-delete" type="submit" value="Promjene plaće po satu">
+    </form>
+    <div class="table-wrapper">
+
         <table class="fl-table">
-          <thead style="text-align: center">
-            <tr>
-              <th>ID</th>
-              <th>Ime</th>
-              <th>Prezime</th>
-              <th>1.mjesec</th>
-              <th>2.mjesec</th>
-              <th>3.mjesec</th>
-              <th>4.mjesec</th>
-              <th>5.mjesec</th>
-              <th>6.mjesec</th>
-              <th>7.mjesec</th>
-              <th>8.mjesec</th>
-              <th>9.mjesec</th>
-              <th>10.mjesec</th>
-              <th>11.mjesec</th>
-              <th>12.mjesec</th>
-             
-              
-            </tr>
-          </thead>
-          <div>
-      {% for row in data %}
-      <div>
-          <tbody>
-            <tr>
-              <td>{{row [0] }}</td>
-              <td>{{ row[1] }}</td>
-              <td>{{ row[2] }}</td>
-              <td>{{ row[3] }}KM</td>
-              <td>{{ row[4] }}KM</td>
-              <td>{{ row[5] }}KM</td>
-              <td>{{row [6] }}KM</td>
-              <td>{{ row[7] }}KM</td>
-              <td>{{ row[8] }}KM</td>
-              <td>{{ row[9] }}KM</td>
-              <td>{{ row[10] }}KM</td>
-              <td>{{ row[11] }}KM</td>
-              <td>{{ row[12] }}KM</td>
-              <td>{{ row[13] }}KM</td>
-              <td>{{ row[14] }}KM</td>
-               
-              
+            <thead style="text-align: center">
+                <tr>
+                    <th>ID</th>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>1.mjesec</th>
+                    <th>2.mjesec</th>
+                    <th>3.mjesec</th>
+                    <th>4.mjesec</th>
+                    <th>5.mjesec</th>
+                    <th>6.mjesec</th>
+                    <th>7.mjesec</th>
+                    <th>8.mjesec</th>
+                    <th>9.mjesec</th>
+                    <th>10.mjesec</th>
+                    <th>11.mjesec</th>
+                    <th>12.mjesec</th>
 
-              
-            </tr>
-          </tbody>
-      {% endfor %}
 
-          <tbody></tbody>
+                </tr>
+            </thead>
+            <div>
+                {% for row in data %}
+                <div>
+                    <tbody>
+                        <tr>
+                            <td>{{row [0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}KM</td>
+                            <td>{{ row[4] }}KM</td>
+                            <td>{{ row[5] }}KM</td>
+                            <td>{{row [6] }}KM</td>
+                            <td>{{ row[7] }}KM</td>
+                            <td>{{ row[8] }}KM</td>
+                            <td>{{ row[9] }}KM</td>
+                            <td>{{ row[10] }}KM</td>
+                            <td>{{ row[11] }}KM</td>
+                            <td>{{ row[12] }}KM</td>
+                            <td>{{ row[13] }}KM</td>
+                            <td>{{ row[14] }}KM</td>
+
+
+
+
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+
+                    <tbody></tbody>
         </table>
-    
-  </div>
-  
-  <script language="javascript">
-setTimeout(function(){
-   window.location.reload(1);
-}, 60000);
-</script>
-<script>const spans = document.querySelectorAll('.word span');
 
-spans.forEach((span, idx) => {
-  span.addEventListener('click', (e) => {
-    e.target.classList.add('active');
-  });
-  span.addEventListener('animationend', (e) => {
-    e.target.classList.remove('active');
-  });
-  
-  // Initial animation
-  setTimeout(() => {
-    span.classList.add('active');
-  }, 750 * (idx+1))
-});</script>
+        </div>
+
+        <script language="javascript">
+            setTimeout(function() {
+                window.location.reload(1);
+            }, 60000);
+        </script>
+        <script>
+            const spans = document.querySelectorAll('.word span');
+
+            spans.forEach((span, idx) => {
+                span.addEventListener('click', (e) => {
+                    e.target.classList.add('active');
+                });
+                span.addEventListener('animationend', (e) => {
+                    e.target.classList.remove('active');
+                });
+
+                // Initial animation
+                setTimeout(() => {
+                    span.classList.add('active');
+                }, 750 * (idx + 1))
+            });
+        </script>
 
 
-</html>
+    </html>

@@ -1,5 +1,5 @@
 from flask import render_template, request, session
-from db import db, Feedback, placaTablica, app, con, cursor
+from db import db, Feedback, placaTablica,izmjenaSatnice, app, con, cursor
 import pandas as pd
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
@@ -44,6 +44,7 @@ def deleteUser():
         id = request.form["id"]
         db.session.query(Feedback).filter(Feedback.id==id).delete()
         db.session.query(placaTablica).filter(placaTablica.id==id).delete()
+        db.session.query(izmjenaSatnice).filter(izmjenaSatnice.id==id).delete()
         db.session.commit()        
         message='Uspješno ste izbrisali zaposlenika'
         return render_template('error.html', message=message)
@@ -96,10 +97,12 @@ def submitNoviRadnik():
         if id == '' or firstName == '' or lastName == "" or Satnica == "":
             return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
         try:
+            data2 = izmjenaSatnice(id,"NaN")
             data1 = placaTablica(id, firstName, lastName,"0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ")
             data = Feedback(id, firstName, lastName, Satnica,Odjel, Opis, JMBG)
             db.session.add(data)
             db.session.add(data1)
+            db.session.add(data2)
             db.session.commit()
             return render_template('success.html')
         except:

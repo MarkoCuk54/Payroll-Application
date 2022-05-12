@@ -30,6 +30,13 @@ class Feedback(db.Model):
         self.Odjel = Odjel
         self.Opis = Opis
 
+class izmjenaSatnice(db.Model):
+    __tablename__ = 'izmjena'
+    id = db.Column(db.Integer, primary_key=True)
+    izmjena = db.Column(db.String(30))
+    def __init__(self, id, izmjena):
+        self.id = id
+        self.izmjena = izmjena
 
 class placaTablica(db.Model):
     __tablename__ = 'placamjesecna'
