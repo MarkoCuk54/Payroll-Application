@@ -14,17 +14,17 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 class Feedback(db.Model):
     __tablename__ = 'radnici'
     id = db.Column(db.Integer, primary_key=True)
-    FirstName = db.Column(db.String(30))
-    LastName = db.Column(db.String(30))
+    firstname = db.Column(db.String(30))
+    lastname = db.Column(db.String(30))
     Satnica = db.Column(db.Float)
     Odjel = db.Column(db.String(30))
     Opis = db.Column(db.Text())
     JMBG   = db.Column(db.String(30))
 
-    def __init__(self, id, FirstName, LastName,  Satnica, Odjel, Opis, JMBG):
+    def __init__(self, id, firstname, lastname,  Satnica, Odjel, Opis, JMBG):
         self.id = id
-        self.FirstName = FirstName
-        self.LastName = LastName
+        self.firstname = firstname
+        self.lastname = lastname
         self.JMBG = JMBG
         self.Satnica = Satnica
         self.Odjel = Odjel
@@ -41,8 +41,8 @@ class izmjenaSatnice(db.Model):
 class placaTablica(db.Model):
     __tablename__ = 'placamjesecna'
     id = db.Column(db.Integer, primary_key=True)
-    FirstName = db.Column(db.String(30))
-    LastName = db.Column(db.String(30))
+    firstname = db.Column(db.String(30))
+    lastname = db.Column(db.String(30))
     siječanj = db.Column(db.String(30))
     veljača  = db.Column(db.String(30))
     ožujak  = db.Column(db.String(30))
@@ -56,10 +56,10 @@ class placaTablica(db.Model):
     studeni  = db.Column(db.String(30))
     prosinac  = db.Column(db.String(30))
 
-    def __init__(self, id, FirstName, LastName, siječanj, veljača, ožujak, travanj, svibanj, lipanj, srpanj, kolovoz, rujan, listopad, studeni, prosinac):
+    def __init__(self, id, firstname, lastname, siječanj, veljača, ožujak, travanj, svibanj, lipanj, srpanj, kolovoz, rujan, listopad, studeni, prosinac):
         self.id = id
-        self.FirstName = FirstName
-        self.LastName = LastName
+        self.FirstName = firstname
+        self.LastName = lastname
         self.siječanj = siječanj
         self.veljača = veljača
         self.ožujak = ožujak
