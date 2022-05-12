@@ -8,11 +8,19 @@
     <link rel="stylesheet" href="../static/style.css" />
     <link rel="stylesheet" href="../static/editUser.css" />
     <link rel="stylesheet" href="../static/povijestDizanje.css" />
+    <style>
+        h3 {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
     <title>Povijest Dizanje Place</title>
 </head>
 
 <body>
-    <h1 id="headline">Povijest rast satnice od {{data[1]}} {{data[2]}}</h1>
+    <h1>Povijest rast satnice od {{data[1]}} {{data[2]}}</h1>
+    <h3>Posljednje povećanje plaće po satu: {{data[3]}}</h3>
+
     <form class="form-nazad" action="/povijestPrimanja">
         <button class="button-nazad">Nazad</button>
     </form>
