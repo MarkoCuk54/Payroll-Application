@@ -85,7 +85,7 @@ def changeSatnica():
 @app.route('/povijestDizanje', methods=["POST"])
 def povijestDizanje():
             id = request.form["idPovijest"]
-            cursor.execute("SELECT * from izmjena where id =" + str(id))
+            cursor.execute("SELECT radnici.id, radnici.firstname, radnici.lastname, izmjena.izmjena FROM radnici INNER JOIN izmjena ON radnici.id = izmjena.id")
             result = cursor.fetchall()
             print(result)
             message = "Sve OK!"
