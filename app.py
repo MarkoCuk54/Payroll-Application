@@ -71,13 +71,16 @@ def editUser():
 @app.route('/changeSatnica', methods=[ "POST"])
 def changeSatnica():
         novaSatnica = request.form["satnica"]
-        print(editUser.id)
-        print(novaSatnica)
-        user = db.session.query(Feedback).filter(Feedback.id == editUser.id).one()
-        user.Satnica = novaSatnica
-        db.session.commit()
-        message = "Uspješno ste promijenili satnicu."
-        return render_template('error.html', message=message) 
+        try:
+            user = db.session.query(Feedback).filter(Feedback.id == editUser.id).one()
+            user.Satnica = novaSatnica
+            db.session.commit()
+            message = "Uspješno ste promijenili satnicu."
+            return render_template('error.html', message=message) 
+        except:
+            message = "Satnica je u pogrešnom formatu"
+            return render_template('error.html', message=message)
+
        
 
 @app.route('/submit_noviRadnik', methods=['POST'])
