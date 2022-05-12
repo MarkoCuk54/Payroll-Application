@@ -1,41 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
 
- <!DOCTYPE html>
-<html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <title>Emerus | Payroll App</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="../static/login.css">
+    <meta charset="UTF-8">
+    <title>Emerus | Payroll App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../static/login.css">
 
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<div id="login-form-wrap">
-  <h2>Emerus</h2>
-  <form action="/login" method="post">
-        <div class="container">
-            <div class="card">
-                <div class="content">
-                    <h2>Payroll System </h2>
-                      <form action="" method="post">
-                         <input type="text" id="username" name="username" placeholder="Username"  value="{{
-                        request.form.username }}" >
+    {% if error %}
+    <h2 class="error">{{ error | safe }}</h2>
+    {% endif %}
+    <!-- partial:index.partial.html -->
+    <div id="login-form-wrap">
+        <h2>Emerus</h2>
+        <form action="/login" method="post">
+            <div class="container">
+                <div class="card">
+                    <div class="content">
+                        <h2>Payroll System </h2>
+                        <form action="" method="post">
+                            <input type="text" id="username" name="username" placeholder="Username" value="{{
+                        request.form.username }}">
                             <br>
                             <br>
-                       
-                        <input type="password" id="email" name="password" placeholder="Password"  value="{{
+
+                            <input type="password" id="email" name="password" placeholder="Password" value="{{
                       request.form.password }}">
 
-                      <br />
-                      <br />
-                      <input class="btn btn-default" type="submit" value="Prijavi se" />  </div>   
+                            <br />
+                            <br />
+                            <input class="btn btn-default" type="submit" value="Prijavi se" /> </div>
+                </div>
             </div>
-        </div>
-        </form>
-  
-</div><!--login-form-wrap-->
-<!-- partial -->
-  
-</body>
-</html>
+            </form>
 
+    </div>
+
+</body>
+
+</html>

@@ -1,29 +1,30 @@
 body {
-  font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
-  color: #2b3e51;
-  background-image: url("./login-page-bg.jpg");
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #2b3e51;
+    background-image: url("./login-page-bg.jpg");
 }
 
 h2 {
-  font-weight: 300;
-  text-align: center;
-  margin: 15px;
-  color: #151d3b;
+    font-weight: 300;
+    text-align: center;
+    margin: 15px;
+    color: #151d3b;
 }
 
 p {
-  position: relative;
+    position: relative;
 }
 
 a,
 a:link,
 a:visited,
 a:active {
-  color: #3ca9e2;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+    color: #3ca9e2;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
+
 a:focus,
 a:hover,
 a:link:focus,
@@ -32,136 +33,148 @@ a:visited:focus,
 a:visited:hover,
 a:active:focus,
 a:active:hover {
-  color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+    color: #329dd5;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 #login-form-wrap {
-  background-color: #f7f7f7;
-  width: 35%;
-  margin: 10% auto;
-  text-align: center;
-  padding: 20px 0 0 0;
-  border-radius: 10px;
-  box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-bottom: 20px;
+    background-color: #f7f7f7;
+    width: 35%;
+    margin: 10% auto;
+    text-align: center;
+    padding: 20px 0 0 0;
+    border-radius: 10px;
+    box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 20px;
 }
 
 h2 {
-  font-family: "Courier New", Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.error {
+    text-align: center;
+    color: whitesmoke;
 }
 
 #login-form {
-  padding: 0 60px;
+    padding: 0 60px;
 }
 
 input {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  outline: none;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 4px;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 4px;
 }
 
 input[type="text"],
 input[type="password"] {
-  width: 60%;
-  padding: 0 0 0 10px;
-  margin: 20px 0px 0px 0px;
-  color: black;
-  border: 1px solid #151d3b;
-  font-style: normal;
-  font-size: 16px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  position: relative;
-  display: inline-block;
-  background: none;
+    width: 60%;
+    padding: 0 0 0 10px;
+    margin: 20px 0px 0px 0px;
+    color: black;
+    border: 1px solid #151d3b;
+    font-style: normal;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    display: inline-block;
+    background: none;
 }
+
 input[type="text"]:focus,
 input[type="password"]:focus {
-  border-color: #3ca9e2;
+    border-color: #3ca9e2;
 }
+
 input[type="text"]:focus:invalid,
 input[type="password"]:focus:invalid {
-  color: #cc1e2b;
-  border-color: #cc1e2b;
+    color: #cc1e2b;
+    border-color: #cc1e2b;
 }
-input[type="text"]:valid ~ .validation,
-input[type="password"]:valid ~ .validation {
-  display: block;
-  border-color: #0c0;
+
+input[type="text"]:valid~.validation,
+input[type="password"]:valid~.validation {
+    display: block;
+    border-color: #0c0;
 }
-input[type="text"]:valid ~ .validation span,
-input[type="password"]:valid ~ .validation span {
-  background: #0c0;
-  position: absolute;
-  border-radius: 6px;
+
+input[type="text"]:valid~.validation span,
+input[type="password"]:valid~.validation span {
+    background: #0c0;
+    position: absolute;
+    border-radius: 6px;
 }
-input[type="text"]:valid ~ .validation span:first-child,
-input[type="password"]:valid ~ .validation span:first-child {
-  top: 30px;
-  left: 14px;
-  width: 20px;
-  height: 3px;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+
+input[type="text"]:valid~.validation span:first-child,
+input[type="password"]:valid~.validation span:first-child {
+    top: 30px;
+    left: 14px;
+    width: 20px;
+    height: 3px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
-input[type="text"]:valid ~ .validation span:last-child,
-input[type="password"]:valid ~ .validation span:last-child {
-  top: 35px;
-  left: 8px;
-  width: 11px;
-  height: 3px;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+
+input[type="text"]:valid~.validation span:last-child,
+input[type="password"]:valid~.validation span:last-child {
+    top: 35px;
+    left: 8px;
+    width: 11px;
+    height: 3px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .validation {
-  display: none;
-  position: absolute;
-  content: " ";
-  height: 60px;
-  width: 30px;
-  right: 15px;
-  top: 0px;
+    display: none;
+    position: absolute;
+    content: " ";
+    height: 60px;
+    width: 30px;
+    right: 15px;
+    top: 0px;
 }
 
 input[type="submit"] {
-  border: none;
-  display: block;
-  background-color: #151d3b;
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  font-size: 18px;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  text-align: center;
-  width: 30%;
-  margin-bottom: 20px;
+    border: none;
+    display: block;
+    background-color: #151d3b;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
 }
+
 input[type="submit"]:hover {
-  background-color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+    background-color: #329dd5;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 #create-account-wrap {
-  background-color: #eeedf1;
-  color: #8a8b8e;
-  font-size: 14px;
-  width: 100%;
-  padding: 10px 0;
-  border-radius: 0 0 4px 4px;
+    background-color: #eeedf1;
+    color: #8a8b8e;
+    font-size: 14px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 0 0 4px 4px;
 }
