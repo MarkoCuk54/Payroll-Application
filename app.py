@@ -1,3 +1,5 @@
+from datetime import datetime
+from datetime import date
 from flask import render_template, request, session
 from db import db, Feedback, placaTablica,izmjenaSatnice, app, con, cursor
 import pandas as pd
@@ -75,6 +77,8 @@ def changeSatnica():
         try:
             user = db.session.query(Feedback).filter(Feedback.id == editUser.id).one()
             user.Satnica = novaSatnica
+            izmjena = db.session.query(izmjenaSatnice).filter(izmjenaSatnice.id == editUser.id).one()
+            izmjena.izmjena = novaSatnica
             db.session.commit()
             message = "Uspješno ste promijenili satnicu."
             return render_template('error.html', message=message) 
@@ -86,7 +90,7 @@ def changeSatnica():
 def povijestDizanje():
         try:
             id = request.form["idPovijest"]
-            cursor.execute("SELECT radnici.id, radnici.firstname, radnici.lastname, izmjena.izmjena FROM radnici INNER JOIN izmjena ON radnici.id = izmjena.id where izmjena.id = " + str(id))
+            cursor.execute("SELECT radnici.id, radnici.firstname, radnici.lastname, izmjena.izmjena , izmjena.datum FROM radnici INNER JOIN izmjena ON radnici.id = izmjena.id where izmjena.id = " + str(id))
             result = cursor.fetchall()
             return render_template('povijestDizanje.html', data=result[0])
         except:
@@ -106,10 +110,11 @@ def submitNoviRadnik():
         Odjel = request.form["Odjel"]
         Opis = request.form["Opis"]
         JMBG = request.form["jmbg"]
+        date = datetime.today().strftime('%d-%m-%Y')
         if id == '' or firstname == '' or lastname == "" or Satnica == "":
             return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
         try:
-            data2 = izmjenaSatnice(id, Satnica)
+            data2 = izmjenaSatnice(id, Satnica, date)
             data1 = placaTablica(id, firstname, lastname,"0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ")
             data = Feedback(id, firstname, lastname, Satnica,Odjel, Opis, JMBG)
             db.session.add(data)

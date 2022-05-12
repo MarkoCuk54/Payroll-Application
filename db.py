@@ -34,9 +34,11 @@ class izmjenaSatnice(db.Model):
     __tablename__ = 'izmjena'
     id = db.Column(db.Integer, primary_key=True)
     izmjena = db.Column(db.String(30))
-    def __init__(self, id, izmjena):
+    datum = db.Column(db.String(30))
+    def __init__(self, id, izmjena,datum):
         self.id = id
         self.izmjena = izmjena
+        self.datum = datum
 
 class placaTablica(db.Model):
     __tablename__ = 'placamjesecna'
