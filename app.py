@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, session
 from db import db, Feedback, placaTablica, app, con, cursor
 import pandas as pd
 from werkzeug.utils import secure_filename
@@ -73,6 +73,9 @@ def changeSatnica():
         novaSatnica = request.form["satnica"]
         print(editUser.id)
         print(novaSatnica)
+        user = db.session.query(Feedback).filter(Feedback.id == editUser.id).one()
+        user.Satnica = novaSatnica
+        db.session.commit()
         message = "Uspješno ste promijenili satnicu."
         return render_template('error.html', message=message) 
        
