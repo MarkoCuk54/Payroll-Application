@@ -69,7 +69,7 @@ def editUser():
             message = "Id polje ne smije biti prazno"
             return render_template('error.html', message=message)
             
-@app.route('/changeSatnica', methods=[ "POST"])
+@app.route('/changeSatnica', methods=["POST"])
 def changeSatnica():
         novaSatnica = request.form["satnica"]
         try:
@@ -82,7 +82,21 @@ def changeSatnica():
             message = "Satnica je u pogrešnom formatu"
             return render_template('error.html', message=message)
 
-       
+@app.route('/povijestDizanje', methods=["POST"])
+def povijestDizanje():
+        try:
+            id = request.form["idPovijest"]
+            cursor.execute("SELECT * FROM izmjena where id = " + str(id))
+            result = cursor.fetchall()
+            print(result)
+            message = "Sve OK!"
+            return render_template('error.html', message=message)
+        except:
+            cursor.execute("ROLLBACK")
+            con.commit()
+            message = "ID ne postoji u Bazi"
+            return render_template('error.html', message=message)
+      
 
 @app.route('/submit_noviRadnik', methods=['POST'])
 def submitNoviRadnik():
