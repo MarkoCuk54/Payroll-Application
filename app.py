@@ -55,10 +55,10 @@ def deleteUser():
 
 @app.route('/editUser', methods=["GET", "POST"])
 def editUser():
-        id = request.form["idEdit"]
+        editUser.id = request.form["idEdit"]
         if(id != ""):
             try:
-                cursor.execute("SELECT * FROM radnici where  id = " + str(id))
+                cursor.execute("SELECT * FROM radnici where  id = " + str(editUser.id))
                 result = cursor.fetchall()
                 return render_template('editUser.html', data=result[0])
             except:
@@ -71,6 +71,7 @@ def editUser():
 @app.route('/changeSatnica', methods=[ "POST"])
 def changeSatnica():
         novaSatnica = request.form["satnica"]
+        print(editUser.id)
         print(novaSatnica)
         message = "Uspješno ste promijenili satnicu."
         return render_template('error.html', message=message) 
