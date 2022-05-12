@@ -79,6 +79,7 @@ def changeSatnica():
             user.Satnica = novaSatnica
             izmjena = db.session.query(izmjenaSatnice).filter(izmjenaSatnice.id == editUser.id).one()
             izmjena.izmjena = novaSatnica
+            izmjena.datum =  datetime.today().strftime('%d-%m-%Y')
             db.session.commit()
             message = "Uspješno ste promijenili satnicu."
             return render_template('error.html', message=message) 
