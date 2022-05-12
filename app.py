@@ -84,12 +84,17 @@ def changeSatnica():
 
 @app.route('/povijestDizanje', methods=["POST"])
 def povijestDizanje():
+        try:
             id = request.form["idPovijest"]
             cursor.execute("SELECT radnici.id, radnici.firstname, radnici.lastname, izmjena.izmjena FROM radnici INNER JOIN izmjena ON radnici.id = izmjena.id where izmjena.id = " + str(id))
             result = cursor.fetchall()
             print(result)
             message = "Sve OK!"
             return render_template('error.html', message=message)
+        except:
+            cursor.execute("ROLLBACK")
+            con.commit()
+            return render_template('error.html', message='ID ne postoji')
        
       
 
