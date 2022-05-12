@@ -58,8 +58,8 @@ class placaTablica(db.Model):
 
     def __init__(self, id, firstname, lastname, siječanj, veljača, ožujak, travanj, svibanj, lipanj, srpanj, kolovoz, rujan, listopad, studeni, prosinac):
         self.id = id
-        self.FirstName = firstname
-        self.LastName = lastname
+        self.firstname = firstname
+        self.lastname = lastname
         self.siječanj = siječanj
         self.veljača = veljača
         self.ožujak = ožujak

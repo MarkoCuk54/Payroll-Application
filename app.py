@@ -97,18 +97,18 @@ def povijestDizanje():
 def submitNoviRadnik():
     if request.method == 'POST':
         id = request.form["id"]
-        firstName = request.form['firstName']
-        lastName = request.form['lastName']
+        firstname = request.form['firstName']
+        lastname = request.form['lastName']
         Satnica = request.form['Satnica']
         Odjel = request.form["Odjel"]
         Opis = request.form["Opis"]
         JMBG = request.form["jmbg"]
-        if id == '' or firstName == '' or lastName == "" or Satnica == "":
+        if id == '' or firstname == '' or lastname == "" or Satnica == "":
             return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
         try:
             data2 = izmjenaSatnice(id,"NaN")
-            data1 = placaTablica(id, firstName, lastName,"0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ")
-            data = Feedback(id, firstName, lastName, Satnica,Odjel, Opis, JMBG)
+            data1 = placaTablica(id, firstname, lastname,"0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ")
+            data = Feedback(id, firstname, lastname, Satnica,Odjel, Opis, JMBG)
             db.session.add(data)
             db.session.add(data1)
             db.session.add(data2)
