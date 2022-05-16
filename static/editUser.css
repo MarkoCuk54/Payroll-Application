@@ -35,6 +35,10 @@ h1 {
     margin: 40px 40px 0px 40px;
 }
 
+.color-font {
+    color: #f32424;
+}
+
 #satnica {
     width: 20%;
     text-decoration: none;
