@@ -14,7 +14,7 @@ h1 {
     position: absolute;
     bottom: 10px;
     width: 50%;
-    margin-left: 46%;
+    margin-left: 55%;
 }
 
 .button-nazad {
@@ -37,6 +37,27 @@ h1 {
 
 .color-font {
     color: #f32424;
+}
+
+.form-edit {
+    position: absolute;
+    bottom: 10px;
+    width: 50%;
+    margin-left: 35%;
+}
+
+.form-edit button {
+    background-color: #2155cd;
+    color: black;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 0 20px;
+}
+
+.form-edit button:hover {
+    cursor: pointer;
+    background-color: #046c94;
+    color: #fff;
 }
 
 #satnica {
