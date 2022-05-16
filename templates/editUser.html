@@ -21,7 +21,13 @@
         <p>{{data[6]}}</p>
         <hr />
         <h4>Odjel:</h4>
-        <p>{{data[4]}}</p>
+        <form style="text-align: left; display: contents" action="/changeOdjel" method="post">
+            <p style="display: contents">Trenutni : {{data[4]}}</p>
+            <label style="margin-left: 40px" for="satnica">Promjeni Odjel : </label>
+
+            <input type="text" placeholder="Novi Odjel" name="odjel" id="satnica" />
+            <input type="submit" value="Promjeni" id="editButton" />
+        </form>
         <hr />
         <h4>Satnica:</h4>
         <form style="text-align: left; display: contents" action="/changeSatnica" method="post">

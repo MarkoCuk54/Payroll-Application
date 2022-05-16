@@ -65,9 +65,13 @@ def editUser():
                 result = cursor.fetchall()
                 return render_template('editUser.html', data=result[0])
             except:
+                cursor.execute("ROLLBACK")
+                con.commit()
                 message = "ID ne postoji u Bazi"
                 return render_template('error.html', message=message)
         else:
+            cursor.execute("ROLLBACK")
+            con.commit()
             message = "Id polje ne smije biti prazno"
             return render_template('error.html', message=message)
             
@@ -86,6 +90,20 @@ def changeSatnica():
         except:
             message = "Satnica je u pogrešnom formatu"
             return render_template('error.html', message=message)
+
+@app.route('/changeOdjel', methods=["POST"])
+def changeOdjel():
+        noviOdjel = request.form["odjel"]
+        try:
+            user = db.session.query(Feedback).filter(Feedback.id == editUser.id).one()
+            user.Odjel = noviOdjel
+            db.session.commit()
+            message = "Uspješno ste promijenili odjel."
+            return render_template('error.html', message=message) 
+        except:
+            message = "Satnica je u odjel formatu"
+            return render_template('error.html', message=message)
+
 
 @app.route('/povijestDizanje', methods=["POST"])
 def povijestDizanje():
