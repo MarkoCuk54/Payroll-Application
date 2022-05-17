@@ -3,6 +3,7 @@ body {
     font-family: "Open Sans", sans-serif;
     color: #2b3e51;
     background-image: url("./login-page-bg.jpg");
+    background-repeat: inherit;
 }
 
 h2 {
