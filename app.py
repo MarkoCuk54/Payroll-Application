@@ -1,6 +1,6 @@
 from datetime import datetime
 from datetime import date
-from flask import render_template, request, session
+from flask import render_template, request
 from db import db, Feedback, placaTablica,izmjenaSatnice, app, con, cursor
 import pandas as pd
 from werkzeug.utils import secure_filename
