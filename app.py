@@ -5,19 +5,9 @@ from db import db, Feedback, placaTablica,izmjenaSatnice, app, con, cursor
 import pandas as pd
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
-
-
-# var for the koficijent:
-
-smjena3 = 1.5
-ned1i2 = 1.15
-dan7i8 = 1.5
-vikendPrekovremeni = 1.5
-blagdan = 1.3
-bolovanje = 0.8
+from koficijenti import vikendPrekovremeni, smjena3, ned1i2, dan7i8, blagdan, bolovanje
 
 #Home, Login, Edit, Delete and New Employyes routes :
-
 @app.route('/')
 def index():
     return render_template('Login.html')
