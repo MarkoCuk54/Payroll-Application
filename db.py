@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
 
-con = psycopg2.connect(database="payroll", user="gfqguxbciigqcd", password="b0ca30af9ed1d2deacff97ed20ed11aa4f7e361ca898f8799095dff254de11e3", host="ec2-3-231-82-226.compute-1.amazonaws.com", port="5432")
+con = psycopg2.connect(database="d27il8v0ile7d", user="gfqguxbciigqcd", password="b0ca30af9ed1d2deacff97ed20ed11aa4f7e361ca898f8799095dff254de11e3", host="ec2-3-231-82-226.compute-1.amazonaws.com", port="5432")
 cursor = con.cursor()
 db = SQLAlchemy(app)
 
