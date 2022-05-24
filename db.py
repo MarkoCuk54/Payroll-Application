@@ -8,7 +8,8 @@ cursor = con.cursor()
 db = SQLAlchemy(app)
 
 app.debug = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:emerus2705@localhost/payroll'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:emerus2705@localhost/payroll'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://gfqguxbciigqcd:b0ca30af9ed1d2deacff97ed20ed11aa4f7e361ca898f8799095dff254de11e3@ec2-3-231-82-226.compute-1.amazonaws.com:5432/d27il8v0ile7d'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 class Feedback(db.Model):
