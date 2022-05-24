@@ -311,4 +311,4 @@ def upload_files():
 
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0', port = process.env.PORT)
+   app.run(host='0.0.0.0', process.env.PORT)
