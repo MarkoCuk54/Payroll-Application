@@ -36,7 +36,7 @@ def deleteUser():
         db.session.query(Feedback).filter(Feedback.id==id).delete()
         db.session.query(placaTablica).filter(placaTablica.id==id).delete()
         db.session.query(izmjenaSatnice).filter(izmjenaSatnice.id==id).delete()
-        db.session.commit()        
+        db.session.commit()
         message='Uspješno ste izbrisali zaposlenika'
         return render_template('error.html', message=message)
     except:
@@ -63,7 +63,7 @@ def editUser():
             con.commit()
             message = "Id polje ne smije biti prazno"
             return render_template('error.html', message=message)
-            
+
 @app.route('/changeSatnica', methods=["POST"])
 def changeSatnica():
         novaSatnica = request.form["satnica"]
@@ -75,7 +75,7 @@ def changeSatnica():
             izmjena.datum =  datetime.today().strftime('%d-%m-%Y')
             db.session.commit()
             message = "Uspješno ste promijenili satnicu."
-            return render_template('error.html', message=message) 
+            return render_template('error.html', message=message)
         except:
             message = "Satnica je u pogrešnom formatu"
             return render_template('error.html', message=message)
@@ -88,7 +88,7 @@ def changeOdjel():
             user.Odjel = noviOdjel
             db.session.commit()
             message = "Uspješno ste promijenili odjel."
-            return render_template('error.html', message=message) 
+            return render_template('error.html', message=message)
         except:
             message = "Satnica je u odjel formatu"
             return render_template('error.html', message=message)
@@ -105,8 +105,8 @@ def povijestDizanje():
             cursor.execute("ROLLBACK")
             con.commit()
             return render_template('error.html', message='ID ne postoji')
-       
-      
+
+
 
 @app.route('/submit_noviRadnik', methods=['POST'])
 def submitNoviRadnik():
@@ -135,13 +135,13 @@ def submitNoviRadnik():
             con.commit()
             return render_template('dodajRadnika.html', message='Ovaj Radnik vec postoji u bazi')
 
-        
+
 @app.route('/sviRadnici', methods=['GET'])
 def sviRadnici():
         cursor.execute("SELECT * FROM radnici ORDER BY id ")
         result = cursor.fetchall()
         return render_template("sviRadnici.html", data=result)
-        
+
 
 @app.route("/povijestPrimanja", methods=["GET"])
 def povijestPrimanja():
@@ -207,7 +207,7 @@ def excelFile():
         imena = []
         prezimena = []
         jmbgs= []
-        try: 
+        try:
             excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
             for index, row in excelFile.head(n = 50).iterrows():
                 ids.append(row["id"])
@@ -293,7 +293,7 @@ def excelMjesec():
 @app.route('/upload')
 def upload_file():
    return render_template('upload.html')
-	
+
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_files():
    if request.method == 'POST':
@@ -311,4 +311,4 @@ def upload_files():
 
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0', port=5000)
+   app.run(host='0.0.0.0', port = process.env.PORT)
