@@ -14,7 +14,12 @@ Install my-project with pip
 
 ```bash
   pip install -r requirements.txt
+  create a database with the name "payroll"
+  python
+  from app import db
+  db.create_all()
   python ./app.py
+  
 ```
 
 
