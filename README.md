@@ -19,6 +19,7 @@ change the credits in the db.py file
   python
   from app import db
   db.create_all()
+  exit()
   python ./app.py
   
 ```
