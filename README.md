@@ -11,10 +11,11 @@ A complete payroll management system with CRUD function on Employee/Role/Departm
 ## Installation
 
 Install my-project with pip
+create a database with the name "payroll"
+change the credits in the db.py file
 
 ```bash
   pip install -r requirements.txt
-  create a database with the name "payroll"
   python
   from app import db
   db.create_all()
