@@ -3,14 +3,19 @@ from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 
 app = Flask(__name__)
-con = psycopg2.connect(database="payroll", user="postgres", password="emerus2705", host="127.0.0.1", port="5432")
-cursor = con.cursor()
-db = SQLAlchemy(app)
+
 
 app.debug = True
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:emerus2705@localhost/payroll'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://gfqguxbciigqcd:b0ca30af9ed1d2deacff97ed20ed11aa4f7e361ca898f8799095dff254de11e3@ec2-3-231-82-226.compute-1.amazonaws.com:5432/d27il8v0ile7d'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
+
+con = psycopg2.connect(database="payroll", user="gfqguxbciigqcd", password="b0ca30af9ed1d2deacff97ed20ed11aa4f7e361ca898f8799095dff254de11e3", host="ec2-3-231-82-226.compute-1.amazonaws.com", port="5432")
+cursor = con.cursor()
+db = SQLAlchemy(app)
+
 
 class Feedback(db.Model):
     __tablename__ = 'radnici'
