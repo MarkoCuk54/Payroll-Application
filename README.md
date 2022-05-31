@@ -33,7 +33,8 @@ change the credits in the db.py file
 - [@Marko Cuk](https://github.com/MarkoCuk54)
 
 ## Demo
-[@Demo](http://marko54.pythonanywhere.com/)
+[See a Demo here.](http://marko54.pythonanywhere.com/)
+There is not Database Online at this time. (Username : admin Password : emerus159) 
 
 ## Used By
 
