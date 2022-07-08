@@ -210,6 +210,7 @@ def excelFile():
         imena = []
         prezimena = []
         jmbgs= []
+        cijenaGoriva = []
         try:
             excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
             for index, row in excelFile.head(n = 50).iterrows():
@@ -223,6 +224,7 @@ def excelFile():
                 blagdanlist.append(row["blagdan"])
                 bolovanjeList.append(row["bolovanje"])
                 bonusList.append(row["bonus"])
+                cijenaGoriva.append(row["cijenaGoriva"])
             for id in ids:
                 cursor.execute("SELECT * FROM radnici where  id = " + str(id))
                 result = cursor.fetchall()
@@ -230,7 +232,8 @@ def excelFile():
                 ime = result[0][1]
                 prezime = result[0][2]
                 jmbg = result[0][6]
-                placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex])
+                kilometre = result[0][7]
+                placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex]) + (((float(kilometre) * 2 * 22) / 6.6 ) * float(cijenaGoriva[satiIndex]))
                 placa = str(round(placa, 2))
                 place.append(placa)
                 imena.append(ime)
@@ -260,6 +263,7 @@ def excelMjesec():
         bonusList = []
         # Ovdje izracunatre place takodjer po Idove:
         place = []
+        cijenaGoriva = []
         try:
             mjesec = request.form["mjesec"]
             excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
@@ -274,11 +278,13 @@ def excelMjesec():
                 blagdanlist.append(row["blagdan"])
                 bolovanjeList.append(row["bolovanje"])
                 bonusList.append(row["bonus"])
+                cijenaGoriva.append(row["cijenaGoriva"])
             for id in ids:
                 cursor.execute("SELECT * FROM radnici where  id = " + str(id))
                 result = cursor.fetchall()
                 satnica = (result[0][3])
-                placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex])
+                kilometre = result[0][7]
+                placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex]) + (((float(kilometre) * 2 * 22) / 6.6 ) * float(cijenaGoriva[satiIndex]))
                 placa = str(round(placa, 2))
                 place.append(placa)
                 sql_update_query = "Update placamjesecna set " + mjesec +" = %s where id = %s"
