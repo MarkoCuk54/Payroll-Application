@@ -10,7 +10,7 @@ A complete payroll management system with CRUD function on Employee/Role/Departm
 
 ## Installation
 
-Install my-project with pip
+Install requirements with pip
 create a database with the name "payroll"
 change the credits in the db.py file
 
@@ -36,6 +36,10 @@ change the credits in the db.py file
 [See a Demo here.](http://marko54.pythonanywhere.com/)
 
 There is not Database Online at this time. (Username : admin Password : emerus159) 
+
+
+[See it on Youtube.](https://youtu.be/Hg1jKr38vMY)
+
 
 ## Used By
 
