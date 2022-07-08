@@ -170,6 +170,7 @@ def kalkulator():
         blagdanSati = request.form["blagdan"]
         bolovanjeSati = request.form["bolovanje"]
         bonus = request.form["bonus"]
+        gorivoCijena = request.form["gorivoCijena"]
         cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
         satnica = (result[0][3])
