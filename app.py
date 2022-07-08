@@ -175,7 +175,7 @@ def kalkulator():
         result = cursor.fetchall()
         satnica = (result[0][3])
         kilometre = (result[0][7])
-        placa = (float(satnica) * int(sati)) + (int(nocni) * (float(satnica)* smjena3)) + (int(prekovremeni) * float(satnica)) + (int(radNed) * float(satnica) * ned1i2 )  + (float(satnica) * int(prekovremeniVikend) * vikendPrekovremeni) + (float(satnica) * int(blagdanSati) * blagdan) + (float(satnica) * int(bolovanjeSati) * bolovanje) + int(bonus) + (((float(kilometre) * 2 * 22) / 6.6 ) * float(gorivoCijena))
+        placa = (float(satnica) * int(sati)) + (int(nocni) * (float(satnica)* smjena3)) + (int(prekovremeni) * float(satnica)) + (int(radNed) * float(satnica) * ned1i2 )  + (float(satnica) * int(prekovremeniVikend) * vikendPrekovremeni) + (float(satnica) * int(blagdanSati) * blagdan) + (float(satnica) * int(bolovanjeSati) * bolovanje) + int(bonus) +  (((float(gorivoCijena) * 22 * 6.6) * (float[kilometre] / 100)))
         placa = str(round(placa, 2))
         rezName = result[0][1]
         rezLastName = result[0][2]
@@ -233,7 +233,7 @@ def excelFile():
                 prezime = result[0][2]
                 jmbg = result[0][6]
                 kilometre = result[0][7]
-                placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex]) + (((float(kilometre) * 2 * 22) / 6.6 ) * float(cijenaGoriva[satiIndex]))
+                placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex]) +  (((float(cijenaGoriva[satiIndex]) * 22 * 6.6) * (float[kilometre] / 100)))
                 placa = str(round(placa, 2))
                 place.append(placa)
                 imena.append(ime)
@@ -284,7 +284,7 @@ def excelMjesec():
                 result = cursor.fetchall()
                 satnica = (result[0][3])
                 kilometre = result[0][7]
-                placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex]) + (((float(kilometre) * 2 * 22) / 6.6 ) * float(cijenaGoriva[satiIndex]))
+                placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex]) + (((float(cijenaGoriva[satiIndex]) * 22 * 6.6) * (float[kilometre] / 100)))
                 placa = str(round(placa, 2))
                 place.append(placa)
                 sql_update_query = "Update placamjesecna set " + mjesec +" = %s where id = %s"
