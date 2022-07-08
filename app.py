@@ -174,7 +174,8 @@ def kalkulator():
         cursor.execute("SELECT * FROM radnici where  id = " + str(id))
         result = cursor.fetchall()
         satnica = (result[0][3])
-        placa = (float(satnica) * int(sati)) + (int(nocni) * (float(satnica)* smjena3)) + (int(prekovremeni) * float(satnica)) + (int(radNed) * float(satnica) * ned1i2 )  + (float(satnica) * int(prekovremeniVikend) * vikendPrekovremeni) + (float(satnica) * int(blagdanSati) * blagdan) + (float(satnica) * int(bolovanjeSati) * bolovanje) + int(bonus)
+        kilometre = (result[0][7])
+        placa = (float(satnica) * int(sati)) + (int(nocni) * (float(satnica)* smjena3)) + (int(prekovremeni) * float(satnica)) + (int(radNed) * float(satnica) * ned1i2 )  + (float(satnica) * int(prekovremeniVikend) * vikendPrekovremeni) + (float(satnica) * int(blagdanSati) * blagdan) + (float(satnica) * int(bolovanjeSati) * bolovanje) + int(bonus) + (((float(kilometre) * 2 * 22) / 6.6 ) * float(gorivoCijena))
         placa = str(round(placa, 2))
         rezName = result[0][1]
         rezLastName = result[0][2]
