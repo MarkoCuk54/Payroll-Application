@@ -83,6 +83,7 @@
                     <th>Prezime</th>
                     <th>Satnica</th>
                     <th>Odjel</th>
+                    <th>Udaljenost na posao</th>
                     <th>Opis</th>
 
 
@@ -96,13 +97,10 @@
                             <td class="idSearch">{{row[0]}}</td>
                             <td>{{ row[1] }}</td>
                             <td>{{ row[2] }}</td>
-                            <td>{{ row[3] }}</td>
+                            <td>{{ row[3] }} KM</td>
                             <td>{{ row[4] }}</td>
+                            <td style="width: 10%;">{{row[7]}} Km</td>
                             <td>{{ row[5] }}</td>
-
-
-
-
                         </tr>
                     </tbody>
                     {% endfor %}
