@@ -118,13 +118,14 @@ def submitNoviRadnik():
         Odjel = request.form["Odjel"]
         Opis = request.form["Opis"]
         JMBG = request.form["jmbg"]
+        kilometre = request.form["kilometre"]
         date = datetime.today().strftime('%d-%m-%Y')
         if id == '' or firstname == '' or lastname == "" or Satnica == "":
             return render_template('dodajRadnika.html', message='Molim vas popunite obavezna polja')
         try:
             data2 = izmjenaSatnice(id, Satnica, date)
             data1 = placaTablica(id, firstname, lastname,"0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ","0 ")
-            data = Feedback(id, firstname, lastname, Satnica,Odjel, Opis, JMBG)
+            data = Feedback(id, firstname, lastname, Satnica,Odjel, Opis, JMBG, kilometre)
             db.session.add(data)
             db.session.add(data1)
             db.session.add(data2)

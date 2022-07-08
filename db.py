@@ -25,8 +25,9 @@ class Feedback(db.Model):
     Odjel = db.Column(db.String(30))
     Opis = db.Column(db.Text())
     JMBG   = db.Column(db.String(30))
+    kilometre = db.Column(db.String(30))
 
-    def __init__(self, id, firstname, lastname,  Satnica, Odjel, Opis, JMBG):
+    def __init__(self, id, firstname, lastname,  Satnica, Odjel, Opis, JMBG, kilometre):
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
@@ -34,6 +35,7 @@ class Feedback(db.Model):
         self.Satnica = Satnica
         self.Odjel = Odjel
         self.Opis = Opis
+        self.kilometre = kilometre
 
 class izmjenaSatnice(db.Model):
     __tablename__ = 'izmjena'

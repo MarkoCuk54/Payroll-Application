@@ -1,86 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/dodajRadnika.css" />
     <title>Dodaj Radnika</title>
     <style>
-      h1 {
-        text-align: center;
-      }
-      </style>
-  </head>
-  <body>
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
     <html>
-      <div class="header"></div>
-      <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-      <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="header"></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
         <div class="spinner diagonal part-1"></div>
         <div class="spinner horizontal"></div>
         <div class="spinner diagonal part-2"></div>
       </label>
-      <div id="sidebarMenu">
-         <ul class="sidebarMenuInner">
-          <li>EMERUS <span>Payroll System</span></li>
-          <li><form style="text-align: left" action="/home">
-            <button id="home">Početna stranica</button>
-          </form></li>
-          <li><form style="text-align: left" action="/sviRadnici">
-            <button id="sviRadnici">Svi Radnici</button>
-          </form></li><li>
-           <form style="text-align: left" action="/dodajRadnika">
-            <button id="dodajRadnika">Dodaj Radnika</button></form></li>
-            <li><form  style="text-align: left" action="/povijestPrimanja">  <button id="povijestPrimanja">Povijest Primanja</button></form></li>
-            <li><form  style="text-align: left" action="/kalkulator">  <button id="home">Kalkulator Plate</button></form></li>
-            <li><form  style="text-align: left" action="/excelFile"> <button id="home">ExcelFile</button></form></li>
-            <li><form  style="text-align: left" action="/upload"> <button id="home">Učitaj novi Excel</button></form></li>
-          <li><form style="text-align: left" action="/">
-            <button id="odjava">Odjava</button></form></form></li>
-          
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <li>EMERUS <span>Payroll System</span></li>
+            <li>
+                <form style="text-align: left" action="/home">
+                    <button id="home">Početna stranica</button>
+                </form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/sviRadnici">
+                    <button id="sviRadnici">Svi Radnici</button>
+                </form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/dodajRadnika">
+                    <button id="dodajRadnika">Dodaj Radnika</button></form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/povijestPrimanja"> <button id="povijestPrimanja">Povijest Primanja</button></form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/kalkulator"> <button id="home">Kalkulator Plate</button></form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/excelFile"> <button id="home">ExcelFile</button></form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/upload"> <button id="home">Učitaj novi Excel</button></form>
+            </li>
+            <li>
+                <form style="text-align: left" action="/">
+                    <button id="odjava">Odjava</button></form>
+                </form>
+            </li>
+
         </ul>
-      </div>
-     
+    </div>
+
     <h1>Dodaj Radnika</h1>
     <form action="/submit_noviRadnik" method="post">
-      {% if message %}
-      <p class="message">{{ message | safe }}</p>
-      {% endif %}
-      <div id="container">
-        <h1>&bull; Unos djelatnika &bull;</h1>
-        <div class="underline">
-        </div>
-        <div class="icon_wrapper">
-         
-        </div>
-        
-        <div class="name">
-          <label for="name"></label>
-          <input type="text" placeholder="Ime" name="firstName" id="name_input" required>
-        </div>
-        <div class="email">
-          <label for="email"></label>
-          <input type="text" placeholder="Prezime" name="lastName" id="email_input" required>
-        </div>
-        <div class="name">
-          <label for="name"></label>
-          <input type="text" placeholder="ID" name="id" id="name_input" required>
-        </div>
-        
-        <div class="email">
-          <label for="email"></label>
-          <input type="text" placeholder="Satnica" name="Satnica" id="email_input" required>
-        </div>
+        {% if message %}
+        <p class="message">{{ message | safe }}</p>
+        {% endif %}
+        <div id="container">
+            <h1>&bull; Unos djelatnika &bull;</h1>
+            <div class="underline">
+            </div>
+            <div class="icon_wrapper">
 
-        <div id="jmbg" class="email">
-          <label for="email"></label>
-          <input type="text" placeholder="JMBG" name="jmbg" id="email_input" required>
-        </div>
-       
-        <div class="subject">
-          <label for="subject"></label>
-          <select placeholder="Odjel" name="Odjel" id="subject_input" required>
+            </div>
+
+            <div class="name">
+                <label for="name"></label>
+                <input type="text" placeholder="Ime" name="firstName" id="name_input" required>
+            </div>
+            <div class="email">
+                <label for="email"></label>
+                <input type="text" placeholder="Prezime" name="lastName" id="email_input" required>
+            </div>
+            <div class="name">
+                <label for="name"></label>
+                <input type="text" placeholder="ID" name="id" id="name_input" required>
+            </div>
+
+
+            <div class="email">
+                <label for="email"></label>
+                <input type="text" placeholder="Satnica" name="Satnica" id="email_input" required>
+            </div>
+
+            <div id="jmbg" class="email">
+                <label for="email"></label>
+                <input type="text" placeholder="JMBG" name="jmbg" id="email_input" required>
+            </div>
+
+            <div class="subject">
+                <label for="subject"></label>
+                <select placeholder="Odjel" name="Odjel" id="subject_input" required>
             <option disabled hidden selected>Odaberite odjel</option>
             <option value="Uprava">Uprava</option>
             <option value="IT Odjel">IT odjel</option>
@@ -94,16 +114,21 @@
             <option value="Korekcija">Korekcija</option>
             <option value="Kontrola">Kontrola</option>
           </select>
+            </div>
+            <div class="name">
+                <label for="name"></label>
+                <input style="width: 223%;" type="text" placeholder="Udaljenost putovanja na posao u Km" name="kilometre" id="kilometre" required>
+            </div>
+            <div class="message">
+                <label for="message"></label>
+                <textarea name="Opis" placeholder="Unesite opis..." id="message_input" cols="30" rows="5"></textarea>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Pošalji" id="form_button" />
+            </div>
+
         </div>
-          <div class="message">
-            <label for="message"></label>
-            <textarea name="Opis" placeholder="Unesite opis..." id="message_input" cols="30" rows="5" ></textarea>
-          </div>
-          <div class="submit">
-            <input type="submit" value="Pošalji" id="form_button" />
-          </div>
-        
-      </div>
     </form>
-  </body>
+</body>
+
 </html>
