@@ -233,7 +233,8 @@ def excelFile():
                     prezime = result[0][2]
                     jmbg = result[0][6]
                     kilometre = result[0][7]
-                    gorivo = float(cijenaGoriva[satiIndex]) * 22 * 6.6 * float(kilometre) / 100
+                    danaZaGorivo = (sati[satiIndex] + smjena3list[satiIndex] + prekovremeni1i2list[satiIndex] + prvaIdruganedlist[satiIndex] + sedmiI8danlist[satiIndex] + prekovremeniVikendlist[satiIndex] + blagdanlist[satiIndex]) / 8
+                    gorivo = float(cijenaGoriva[satiIndex]) * danaZaGorivo * 6.6 * float(kilometre) / 100
                     gorivo = round(gorivo,2)
                     placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex]) + gorivo
                     placa = str(round(placa, 2))
@@ -286,7 +287,8 @@ def excelMjesec():
                 result = cursor.fetchall()
                 satnica = (result[0][3])
                 kilometre = result[0][7]
-                gorivo = float(cijenaGoriva[satiIndex]) * 22 * 6.6 * float(kilometre) / 100
+                danaZaGorivo = (sati[satiIndex] + smjena3list[satiIndex] + prekovremeni1i2list[satiIndex] + prvaIdruganedlist[satiIndex] + sedmiI8danlist[satiIndex] + prekovremeniVikendlist[satiIndex] + blagdanlist[satiIndex]) / 8
+                gorivo = float(cijenaGoriva[satiIndex]) * danaZaGorivo * 6.6 * float(kilometre) / 100
                 gorivo = round(gorivo,2)
                 placa = (float(satnica) * int(sati[satiIndex])) + (float(satnica) * int(smjena3list[satiIndex]) * smjena3) + (float(satnica) * int(prekovremeni1i2list[satiIndex])) + (float(satnica) * int(prvaIdruganedlist[satiIndex]) * ned1i2 ) + (float(satnica) * int(sedmiI8danlist[satiIndex]) * dan7i8) + (float(satnica) * int(prekovremeniVikendlist[satiIndex]) * vikendPrekovremeni) + (float(satnica) * int(blagdanlist[satiIndex]) * blagdan) + (float(satnica) * int(bolovanjeList[satiIndex]) * bolovanje) + int(bonusList[satiIndex]) + gorivo
                 placa = str(round(placa, 2))
