@@ -3,7 +3,6 @@ from datetime import date
 from flask import render_template, request
 from db import db, Feedback, placaTablica,izmjenaSatnice, app, con, cursor
 import pandas as pd
-from werkzeug.utils import secure_filename
 from koficijenti import vikendPrekovremeni, smjena3, ned1i2, dan7i8, blagdan, bolovanje
 
 #Home, Login, Edit, Delete and New Employyes routes :
