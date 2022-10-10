@@ -270,7 +270,7 @@ def excelMjesec():
         try:
             mjesec = request.form["mjesec"]
             excelFile = pd.read_excel (r'C:\Users\Marko\Documents\platnaLista.xlsx')
-            for index, row in excelFile.head(n = 50).iterrows():
+            for  row in excelFile.head(n = 50).iterrows():
                 ids.append(row["id"])
                 sati.append(row["sati"])
                 smjena3list.append(row["3.smjena"])
