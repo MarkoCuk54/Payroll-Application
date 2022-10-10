@@ -320,6 +320,15 @@ def upload_files():
       else:
         return render_template("error.html", message = "Ovo nije valjana Excel datoteka")
 
+@app.route('/toexcel')
+def to_excel():
+    webpage_url = "http://192.168.0.113:5000/povijestPrimanja?"
+# Create a Pandas dataframe using the table data.
+    table_data = pd.read_html(webpage_url)[0]
+# Store the above-created dataframe as an excel file using the to_excel() function 
+    table_data.to_excel("table_data.xlsx")
+    return render_template("error.html", message = "Excel spreman.")
+
 
 
 
