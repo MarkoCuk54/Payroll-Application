@@ -1,6 +1,5 @@
 from datetime import datetime
 from datetime import date
-from email import message
 from flask import render_template, request, redirect
 from db import db, Feedback, placaTablica,izmjenaSatnice, app, con, cursor
 import pandas as pd
