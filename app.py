@@ -1,6 +1,7 @@
 from datetime import datetime
 from datetime import date
-from flask import render_template, request
+from email import message
+from flask import render_template, request, redirect
 from db import db, Feedback, placaTablica,izmjenaSatnice, app, con, cursor
 import pandas as pd
 from koficijenti import vikendPrekovremeni, smjena3, ned1i2, dan7i8, blagdan, bolovanje
@@ -327,8 +328,8 @@ def to_excel():
     table_data = pd.read_html(webpage_url)[0]
 # Store the above-created dataframe as an excel file using the to_excel() function 
     table_data.to_excel("table_data.xlsx", index=False)
-    return render_template("error.html", message = "Excel spreman.")
-
+    return redirect("/povijestPrimanja")
+    
 
 
 
