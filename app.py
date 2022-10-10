@@ -326,7 +326,7 @@ def to_excel():
 # Create a Pandas dataframe using the table data.
     table_data = pd.read_html(webpage_url)[0]
 # Store the above-created dataframe as an excel file using the to_excel() function 
-    table_data.to_excel("table_data.xlsx")
+    table_data.to_excel("table_data.xlsx", index=False)
     return render_template("error.html", message = "Excel spreman.")
 
 
