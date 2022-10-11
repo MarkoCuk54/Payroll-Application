@@ -323,12 +323,9 @@ def upload_files():
 @app.route('/toexcel')
 def to_excel():
     date = datetime.now().strftime("%d-%m-%Y")
-    print(date)
     webpage_url = "http://192.168.0.179:5000/povijestPrimanja?"
-# Create a Pandas dataframe using the table data.
     table_data = pd.read_html(webpage_url)[0]
     fileName = date + "_povijest_primanja.xlsx"
-# Store the above-created dataframe as an excel file using the to_excel() function 
     table_data.to_excel(fileName, index=False)
     return redirect("/povijestPrimanja")
     
