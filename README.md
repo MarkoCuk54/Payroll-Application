@@ -1,6 +1,6 @@
 # Emerus Payroll System :briefcase: :dollar:
 
-A complete payroll management system with CRUD function on Employee/Role/Department/Payroll for our company with the framework Flask. It is possible to import Excel files to automate the payroll process. It is also possible to export data in xlsx tables. It automatically calculates the work days in which the employee was in the company and calculates the spirt consumption.
+A complete payroll management system with CRUD function on Employee/Role/Department/Payroll for our company with the framework Flask. It is possible to import Excel files to automate the payroll process. It is also possible to export data in xlsx tables. It automatically calculates the work days in which the employee was in the company and calculates the sprit consumption.
 
 ## Tech Stack
 
