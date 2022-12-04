@@ -12,7 +12,8 @@ A complete payroll management system with CRUD function on Employee/Role/Departm
 
 Install requirements with pip
 create a database with the name "payroll"
-change the credits in the db.py file
+change the credits in the db.py file.
+You must have a postgresql server running.
 
 ```bash
   pip install -r requirements.txt
